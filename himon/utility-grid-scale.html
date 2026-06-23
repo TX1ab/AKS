@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Utility & Grid-Scale Solutions — AKS Hithium</title>
+<meta name="description" content="Tier-1 grid-scale battery energy storage that stabilises the grid, firms renewable generation, and defers infrastructure — tender-ready with full EPC and financing support.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --primary: #065CB3; --grey: #4a4f59;
+    --sans: 'Geist', -apple-system, system-ui, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: #fff; font-family: var(--sans); color: #1c1c1c; -webkit-font-smoothing: antialiased; }
+  a:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 4px; }
+  .hex { width: 10px; height: 12px; background: var(--primary); flex-shrink: 0; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+  .hex-w { background: #fff; }
+  .wrap { max-width: 1470px; margin: 0 auto; padding: 0 40px; }
+
+  /* Header */
+  .site-header { height: 80px; border-bottom: 1px solid #f4f4f4; display: flex; align-items: center; background: #fff; position: sticky; top: 0; z-index: 50; }
+  .header-inner { width: 100%; max-width: 1470px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 20px; }
+  .logo { height: 30px; flex-shrink: 0; display: block; }
+  .logo img { height: 30px; width: 142px; display: block; }
+  .nav { flex: 1; display: flex; align-items: center; justify-content: center; gap: 25px; }
+  .nav a { color: #1c1c1c; text-decoration: none; font-size: 16px; font-weight: 500; letter-spacing: -0.32px; line-height: 24px; transition: opacity 0.15s; }
+  .nav a:hover { opacity: 0.6; }
+  .btn-contact { flex-shrink: 0; background: #1c1c1c; color: #f4f4f4; border-radius: 100px; padding: 8px 20px; font-size: 16px; font-weight: 500; letter-spacing: -0.32px; line-height: 24px; text-decoration: none; transition: background 0.15s; }
+  .btn-contact:hover { background: #333; }
+
+  /* Buttons */
+  .btn-pill { display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border-radius: 100px; font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; text-decoration: none; transition: background 0.15s, color 0.15s; }
+  .btn-dark { background: #1c1c1c; color: #fff; } .btn-dark:hover { background: #333; }
+  .btn-outline { background: transparent; color: #1c1c1c; border: 1px solid #1c1c1c; } .btn-outline:hover { background: #1c1c1c; color: #fff; }
+  .btn-light { background: #fff; color: #1c1c1c; } .btn-light:hover { background: #ededed; }
+  .btn-blue { background: var(--primary); color: #fff; } .btn-blue:hover { background: #054e98; }
+
+  /* Hero */
+  .u-hero { padding: 128px 0; display: flex; flex-direction: column; gap: 112px; }
+  .u-hero-top { display: flex; gap: 40px; align-items: flex-end; }
+  .u-hero-title { flex: 1; min-width: 0; font-family: var(--sans); font-weight: 500; font-size: clamp(40px, 4.6vw, 64px); line-height: 1.12; letter-spacing: -1px; }
+  .u-hero-right { flex-shrink: 0; width: 493px; max-width: 100%; display: flex; flex-direction: column; gap: 40px; }
+  .u-hero-right > p { font-family: var(--sans); font-weight: 400; font-size: 16px; line-height: 24px; color: var(--grey); }
+  .u-hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+  .u-hero-img { width: 100%; height: 622px; border-radius: 16px; overflow: hidden; }
+  .u-hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Audience */
+  .u-aud { background: #f0f0eb; padding: 128px 0; }
+  .u-aud .wrap { display: flex; flex-direction: column; gap: 40px; }
+  .u-eyebrow { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-weight: 400; font-size: 14px; line-height: 16px; text-transform: uppercase; color: var(--grey); }
+  .u-aud-frame { display: flex; flex-direction: column; gap: 56px; }
+  .u-aud-head { display: flex; flex-direction: column; gap: 20px; }
+  .u-aud-title { font-family: var(--sans); font-weight: 500; font-size: clamp(40px, 4.4vw, 56px); line-height: 1.14; letter-spacing: -1px; }
+  .u-aud-sub { font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; color: var(--grey); max-width: 840px; }
+  .u-aud-pills { display: flex; flex-wrap: wrap; gap: 12px; }
+  .u-pill { border: 1px solid #1c1c1c; border-radius: 100px; padding: 12px 24px; font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; color: #1c1c1c; }
+  .u-stats { display: flex; gap: 20px; }
+  .u-stat { flex: 1; min-width: 0; background: #deded3; border-radius: 16px; padding: 20px 16px; display: flex; flex-direction: column; gap: 4px; }
+  .u-stat .num { font-family: var(--sans); font-weight: 500; font-size: 32px; line-height: 40px; letter-spacing: -1px; }
+  .u-stat .desc { font-family: var(--sans); font-weight: 400; font-size: 16px; line-height: 24px; color: var(--grey); }
+
+  /* Capabilities (dark) */
+  .u-cap { background: #1c1c1c; color: #fff; padding: 128px 0; }
+  .u-cap .wrap { display: flex; flex-direction: column; gap: 64px; align-items: center; }
+  .u-cap-head { display: flex; flex-direction: column; gap: 16px; align-items: center; }
+  .u-cap-title { font-family: var(--sans); font-weight: 500; font-size: clamp(40px, 4.4vw, 56px); line-height: 1.14; letter-spacing: -1px; color: #fff; text-align: center; }
+  .u-cap-cards { display: flex; gap: 20px; width: 100%; }
+  .u-cap-card { flex: 1; min-width: 0; height: 420px; background: #262626; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; }
+  .u-cap-icon { width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; }
+  .u-cap-icon img { width: 40px; height: 40px; display: block; }
+  .u-cap-card .body { display: flex; flex-direction: column; gap: 16px; }
+  .u-cap-card h3 { font-family: var(--sans); font-weight: 500; font-size: 32px; line-height: 40px; letter-spacing: -1px; color: #fff; }
+  .u-cap-card p { font-family: var(--sans); font-weight: 400; font-size: 16px; line-height: 24px; color: #f4f4f4; }
+
+  /* Banner box (MidCTA) */
+  .u-banner { padding: 128px 0; }
+  .u-banner-box { position: relative; max-width: 1390px; margin: 0 auto; height: 750px; border-radius: 32px; overflow: hidden; display: flex; align-items: flex-end; gap: 24px; padding: 40px; }
+  .u-banner-box img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .u-banner-box::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0) 60%); }
+  .u-banner-title { position: relative; z-index: 1; flex: 1; min-width: 0; font-family: var(--sans); font-weight: 500; font-size: clamp(36px, 4.4vw, 56px); line-height: 1.14; letter-spacing: -1px; color: #fff; }
+  .u-banner-right { position: relative; z-index: 1; flex-shrink: 0; width: 600px; max-width: 50%; display: flex; flex-direction: column; gap: 24px; }
+  .u-banner-right p { font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; color: #fff; }
+  .u-banner-right .btn-pill { align-self: flex-start; padding: 16px 32px; }
+
+  /* Tender */
+  .u-tender { padding: 0 0 128px; }
+  .u-tender .wrap { display: flex; gap: 80px; align-items: flex-start; }
+  .u-tender-left { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 40px; }
+  .u-tender-titles { display: flex; flex-direction: column; gap: 16px; }
+  .u-tender-title { font-family: var(--sans); font-weight: 500; font-size: clamp(40px, 4.4vw, 56px); line-height: 1.14; letter-spacing: -1px; }
+  .u-tender-sub { font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; color: var(--grey); }
+  .u-tender-right { flex-shrink: 0; width: 500px; max-width: 100%; display: flex; flex-direction: column; gap: 32px; }
+  .u-tender-item { display: flex; flex-direction: column; gap: 8px; }
+  .u-tender-item h4 { font-family: var(--sans); font-weight: 500; font-size: 24px; line-height: 32px; letter-spacing: -1px; }
+  .u-tender-item p { font-family: var(--sans); font-weight: 400; font-size: 16px; line-height: 24px; color: var(--grey); }
+  .u-tender-item .rule { height: 1px; background: #e5e5e5; margin-top: 24px; }
+
+  /* Bankability (dark) */
+  .u-bank { background: #1c1c1c; color: #fff; padding: 128px 0; }
+  .u-bank .wrap { display: flex; flex-direction: column; gap: 64px; }
+  .u-bank-head { display: flex; flex-direction: column; gap: 40px; }
+  .u-bank-titles { display: flex; flex-direction: column; gap: 16px; }
+  .u-bank-title { font-family: var(--sans); font-weight: 500; font-size: clamp(40px, 4.4vw, 56px); line-height: 1.14; letter-spacing: -1px; color: #fff; }
+  .u-bank-sub { font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; color: #f4f4f4; max-width: 840px; }
+  .u-bank-certs { display: flex; gap: 20px; align-items: center; }
+  .u-bank-cert { flex: 1; min-width: 0; height: 160px; display: flex; align-items: center; justify-content: center; }
+  .u-bank-cert img { height: 88px; width: auto; display: block; }
+
+  /* Closing CTA */
+  .u-closing { position: relative; padding: 128px 40px; display: flex; flex-direction: column; gap: 40px; align-items: center; text-align: center; overflow: hidden; }
+  .u-closing-bg { position: absolute; inset: 0; z-index: 0; }
+  .u-closing-bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .u-closing-bg::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.7); }
+  .u-closing > * { position: relative; z-index: 1; }
+  .u-closing-titles { display: flex; flex-direction: column; gap: 16px; align-items: center; }
+  .u-closing h2 { font-family: var(--sans); font-weight: 500; font-size: clamp(36px, 4.4vw, 56px); line-height: 1.14; letter-spacing: -1px; color: #fff; }
+  .u-closing-titles p { font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; color: #f4f4f4; max-width: 700px; }
+  .u-closing-cap { font-family: var(--mono); font-weight: 400; font-size: 14px; line-height: 16px; text-transform: uppercase; color: rgba(255,255,255,0.7); }
+
+  /* FAQ */
+  .faq { background: #fff; color: #1c1c1c; padding: 128px 0; }
+  .faq-inner { max-width: 1216px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 56px; align-items: center; }
+  .faq-title { font-family: var(--sans); font-weight: 500; font-size: clamp(36px, 4vw, 56px); line-height: 1.14; letter-spacing: -1px; color: #1c1c1c; text-align: center; }
+  .faq-list { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 1136px; }
+  .faq-item { border: 1px solid #e5e5e5; border-radius: 8px; background: #fff; overflow: hidden; }
+  .faq-q { width: 100%; text-align: left; background: none; border: none; cursor: pointer; padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; color: #1c1c1c; }
+  .faq-icon { width: 24px; height: 24px; flex-shrink: 0; position: relative; }
+  .faq-icon::before, .faq-icon::after { content: ''; position: absolute; background: #1c1c1c; transition: transform 0.25s; }
+  .faq-icon::before { left: 2px; top: 11px; width: 20px; height: 2px; }
+  .faq-icon::after { left: 11px; top: 2px; width: 2px; height: 20px; }
+  .faq-item.open .faq-icon::after { transform: scaleY(0); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 40px; }
+  .faq-item.open .faq-a { max-height: 320px; padding: 0 40px 32px; }
+  .faq-a p { font-family: var(--sans); font-weight: 400; font-size: 16px; line-height: 24px; color: #4a4f59; margin: 0; max-width: 933px; }
+
+  /* CTA + Footer */
+  .cta-footer { background: #000; color: #fff; padding: 88px 0 72px; position: relative; overflow: hidden; }
+  .cf-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .cf-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .cf-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, #000 0%, #000 55%, rgba(0,0,0,0) 100%); }
+  .cta-footer-inner { position: relative; z-index: 1; max-width: 1470px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 120px; }
+  .cf-cta-block { display: flex; flex-direction: column; gap: 32px; align-items: center; text-align: center; }
+  .cf-cta-head { display: flex; flex-direction: column; gap: 16px; align-items: center; }
+  .cf-title { font-family: var(--sans); font-weight: 500; font-size: clamp(36px, 4.4vw, 56px); line-height: 1.14; letter-spacing: -1px; color: #fff; max-width: 560px; }
+  .cf-sub { font-size: 18px; line-height: 27px; letter-spacing: -0.36px; color: #fff; max-width: 504px; }
+  .cf-cta { display: inline-flex; align-items: center; gap: 20px; background: #fff; border-radius: 50px; padding: 8px 8px 8px 20px; text-decoration: none; transition: transform 0.15s; }
+  .cf-cta:hover { transform: translateY(-1px); }
+  .cf-cta-text { color: #1c1c1c; font-family: var(--sans); font-weight: 500; font-size: 18px; }
+  .cf-cta-icon { width: 52px; height: 52px; border-radius: 100px; background: #065CB3; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.2s; }
+  .cf-cta:hover .cf-cta-icon { transform: rotate(45deg); }
+  .cf-cta-icon svg { width: 20px; height: 20px; display: block; }
+  .cf-golden { font-size: 18px; line-height: 27px; letter-spacing: -0.36px; color: #fff; }
+  .cf-divider { height: 1px; background: #4a4f59; }
+  .cf-cols { display: flex; justify-content: space-between; gap: 56px; flex-wrap: wrap; }
+  .cf-col-label { font-family: var(--mono); font-weight: 500; font-size: 14px; line-height: 21px; text-transform: uppercase; color: #bdbdc2; margin-bottom: 16px; }
+  .cf-sitemap-cols { display: flex; gap: 64px; }
+  .cf-navcol { display: flex; flex-direction: column; gap: 4px; }
+  .cf-navcol a { font-family: var(--sans); font-weight: 500; font-size: 16px; line-height: 24px; letter-spacing: -0.32px; color: #fff; text-decoration: none; }
+  .cf-navcol a:hover { color: #bdbdc2; }
+  .cf-right { display: flex; gap: 56px; flex-wrap: wrap; }
+  .cf-contact { display: flex; flex-direction: column; gap: 24px; }
+  .cf-info-val { font-family: var(--sans); font-weight: 500; font-size: 16px; line-height: 24px; letter-spacing: -0.32px; color: #fff; margin-top: 8px; }
+  .cf-bottom { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .cf-bottom p { font-family: var(--mono); font-weight: 400; font-size: 14px; line-height: 21px; letter-spacing: -0.28px; text-transform: uppercase; color: #bdbdc2; margin: 0; }
+
+  /* Responsive */
+  @media (max-width: 1000px) {
+    .nav { display: none; }
+    .u-hero-top, .u-tender .wrap, .u-banner-box { flex-direction: column; align-items: flex-start; gap: 32px; }
+    .u-hero-right, .u-tender-right, .u-banner-title, .u-banner-right { width: 100%; max-width: 100%; }
+    .u-stats, .u-cap-cards, .u-bank-certs { flex-wrap: wrap; }
+    .u-stat { flex: 1 1 45%; }
+    .u-cap-card { flex: 1 1 100%; height: auto; min-height: 320px; }
+    .u-bank-cert { flex: 1 1 30%; }
+    .u-banner-box { height: auto; }
+    .cf-cols { flex-direction: column; gap: 40px; }
+    .cf-right { flex-direction: column; gap: 32px; }
+  }
+  @media (max-width: 620px) {
+    .header-inner, .wrap { padding: 0 24px; }
+    .u-hero, .u-aud, .u-cap, .u-bank, .faq { padding: 72px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="AKS Hithium home"><img src="assets/aks-logo-dark.svg" alt="AKS Hithium"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="ci-solutions.html">C&amp;I Solutions</a>
+      <a href="utility-grid-scale.html">Utility &amp; Grid-Scale Solutions</a>
+      <a href="index.html#technology">Technology</a>
+      <a href="index.html#about">About Us</a>
+    </nav>
+    <a href="#contact" class="btn-contact">Contact</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="u-hero wrap">
+  <div class="u-hero-top">
+    <h1 class="u-hero-title">Grid-Scale Storage for<br>Bangladesh's Energy Future.</h1>
+    <div class="u-hero-right">
+      <p>Tier-1 battery energy storage that stabilises the grid, firms renewable generation, and defers costly infrastructure — delivered tender-ready, with full EPC and financing support backed by Hithium and our Chinese partners.</p>
+      <div class="u-hero-btns">
+        <a href="#contact" class="btn-pill btn-dark">Discuss a Grid Project</a>
+        <a href="#capabilities" class="btn-pill btn-outline">See Our Capabilities</a>
+      </div>
+    </div>
+  </div>
+  <div class="u-hero-img"><img src="assets/util-hero.png" alt="Aerial view of a grid-scale battery storage facility beside a substation at sunset"></div>
+</section>
+
+<!-- Audience -->
+<section class="u-aud">
+  <div class="wrap">
+    <div class="u-eyebrow"><span class="hex" aria-hidden="true"></span>Built for Industry</div>
+    <div class="u-aud-frame">
+      <div class="u-aud-head">
+        <h2 class="u-aud-title">Built for the People Who Build the Grid</h2>
+        <p class="u-aud-sub">From utility procurement to private generation, we deliver storage that meets the technical, commercial, and bankability standards grid-scale projects demand.</p>
+      </div>
+      <div class="u-aud-pills">
+        <span class="u-pill">Renewable Energy Developers</span>
+        <span class="u-pill">EPCs</span>
+        <span class="u-pill">BPDB</span>
+        <span class="u-pill">REB</span>
+        <span class="u-pill">IPPs</span>
+      </div>
+      <div class="u-stats">
+        <div class="u-stat"><div class="num">150 GWh+</div><div class="desc">Hithium technology deployed worldwide</div></div>
+        <div class="u-stat"><div class="num">11,000+ cycles</div><div class="desc">Charge cycles per LFP system</div></div>
+        <div class="u-stat"><div class="num">2 GWh capacity</div><div class="desc">Annual assembly capacity in Bangladesh</div></div>
+        <div class="u-stat"><div class="num">24/7 support</div><div class="desc">Dhaka-based monitoring and support</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Capabilities -->
+<section class="u-cap" id="capabilities">
+  <div class="wrap">
+    <div class="u-cap-head">
+      <div class="u-eyebrow"><span class="hex hex-w" aria-hidden="true"></span><span style="color:#fff">Core Capabilities</span></div>
+      <h2 class="u-cap-title">Storage That Strengthens the Grid</h2>
+    </div>
+    <div class="u-cap-cards">
+      <div class="u-cap-card">
+        <div class="u-cap-icon"><img src="assets/cap-activity.svg" alt=""></div>
+        <div class="body"><h3>Grid Flex &amp; Frequency Support</h3><p>Millisecond response keeps grid frequency stable, integrating more solar and wind into the network without risk.</p></div>
+      </div>
+      <div class="u-cap-card">
+        <div class="u-cap-icon"><img src="assets/cap-sun.svg" alt=""></div>
+        <div class="body"><h3>Renewable Firming</h3><p>Convert intermittent generation into a dispatchable, bankable power block — generation you can schedule and rely on.</p></div>
+      </div>
+      <div class="u-cap-card">
+        <div class="u-cap-icon"><img src="assets/cap-zap.svg" alt=""></div>
+        <div class="body"><h3>Transmission &amp; Distribution Deferral</h3><p>Relieve congested substations and defer costly network upgrades with strategically placed storage.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MidCTA -->
+<section class="u-banner">
+  <div class="u-banner-box">
+    <img src="assets/util-midcta.png" alt="">
+    <h2 class="u-banner-title">Planning a Grid-Scale Project?</h2>
+    <div class="u-banner-right">
+      <p>Our team works alongside developers and utilities from feasibility through commissioning.</p>
+      <a href="#contact" class="btn-pill btn-light">Discuss a Grid Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- Tender -->
+<section class="u-tender">
+  <div class="wrap">
+    <div class="u-tender-left">
+      <div class="u-eyebrow"><span class="hex" aria-hidden="true"></span>Tender Readiness</div>
+      <div class="u-tender-titles">
+        <h2 class="u-tender-title">Tender-Ready, From Bid to Commissioning</h2>
+        <p class="u-tender-sub">We participate in competitive tenders and provide full EPC and financing support — including performance guarantees backed by Hithium and our Chinese partners. You bring the project; we bring a bankable, deliverable, fully-supported solution.</p>
+      </div>
+    </div>
+    <div class="u-tender-right">
+      <div class="u-tender-item"><h4>Competitive Tender Participation</h4><p>Full technical and commercial documentation built for procurement requirements</p><div class="rule"></div></div>
+      <div class="u-tender-item"><h4>End-to-End EPC</h4><p>Engineering, procurement, and construction delivered as one accountable package</p><div class="rule"></div></div>
+      <div class="u-tender-item"><h4>Financing &amp; Performance Guarantees</h4><p>Backed by Hithium and our Chinese partners, making projects bankable</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Bankability -->
+<section class="u-bank">
+  <div class="wrap">
+    <div class="u-bank-head">
+      <div class="u-eyebrow"><span class="hex hex-w" aria-hidden="true"></span><span style="color:#fff">Safety &amp; Compliance</span></div>
+      <div class="u-bank-titles">
+        <h2 class="u-bank-title">Financeable. Certified. Built to Last.</h2>
+        <p class="u-bank-sub">Every system runs on Tier-1 LFP cells — inherently safe, cobalt-free, and warranty-backed — meeting the certification and performance standards lenders and utilities require.</p>
+      </div>
+    </div>
+    <div class="u-bank-certs">
+      <div class="u-bank-cert"><img src="assets/cert-new-1.svg" alt="IEC 62619"></div>
+      <div class="u-bank-cert"><img src="assets/cert-new-2.svg" alt="Fire safety"></div>
+      <div class="u-bank-cert"><img src="assets/cert-new-3.svg" alt="BMS"></div>
+      <div class="u-bank-cert"><img src="assets/cert-new-4.svg" alt="UL 1973"></div>
+      <div class="u-bank-cert"><img src="assets/cert-new-5.svg" alt="UN Transport"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Closing CTA -->
+<section class="u-closing">
+  <div class="u-closing-bg" aria-hidden="true"><img src="assets/util-closing.png" alt=""></div>
+  <div class="u-closing-titles">
+    <h2>Let's Build a More Stable Grid Together.</h2>
+    <p>Whether you're firming a renewable asset, entering a tender, or reinforcing the network, our team is ready to engineer the right solution.</p>
+  </div>
+  <a href="#contact" class="btn-pill btn-blue">Discuss a Grid Project</a>
+  <p class="u-closing-cap">Powering Bangladesh's energy future.</p>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <h2 class="faq-title">Common Questions from Developers &amp; Utilities</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" type="button">What project sizes can you support?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>From distributed grid-support installations to multi-MWh utility-scale systems, each engineered to the network's technical requirements.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Can you support our tender submission?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Yes. We participate in competitive tenders with full technical and commercial documentation, end-to-end EPC, and financing and performance guarantees backed by Hithium and our Chinese partners.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Are the systems bankable?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Yes. Tier-1 LFP cells, full certification, and warranty-backed performance guarantees from Hithium meet the standards lenders and utilities require.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">How fast is the frequency response?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Millisecond-level response keeps grid frequency stable, allowing more solar and wind to be integrated into the network without risk.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Do you provide ongoing performance support?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Yes. Our Dhaka-based team provides 24/7 monitoring, rapid field response, and warranty management across the full system lifecycle.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + Footer -->
+<footer class="cta-footer" id="contact">
+  <div class="cf-bg" aria-hidden="true"><img src="assets/cta-footer-bg.png" alt=""></div>
+  <div class="cta-footer-inner">
+    <div class="cf-cta-block">
+      <div class="cf-cta-head">
+        <h2 class="cf-title">Let's Power Your Next Chapter of Growth.</h2>
+        <p class="cf-sub">Whether you're securing a factory or stabilising the grid, our team is ready to design the right storage solution.</p>
+      </div>
+      <a href="mailto:energy@aks-hithium.com" class="cf-cta">
+        <span class="cf-cta-text">Discuss Your Energy Goals</span>
+        <span class="cf-cta-icon" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 15L15 5M15 5H7M15 5V13" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <p class="cf-golden">Join us in powering a golden future.</p>
+    </div>
+    <div>
+      <div class="cf-divider"></div>
+      <div class="cf-cols" style="margin-top:56px">
+        <div class="cf-sitemap">
+          <div class="cf-col-label">Sitemap</div>
+          <div class="cf-sitemap-cols">
+            <div class="cf-navcol">
+              <a href="index.html">Home</a>
+              <a href="index.html#about">About us</a>
+              <a href="ci-solutions.html">C&amp;I Solutions</a>
+              <a href="utility-grid-scale.html">Utility &amp; Grid-Scale</a>
+              <a href="index.html#technology">Technology</a>
+            </div>
+            <div class="cf-navcol">
+              <a href="#">Term &amp; Service</a>
+              <a href="#">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+        <div class="cf-right">
+          <div class="cf-contact">
+            <div><div class="cf-col-label">Email &amp; Support</div><div class="cf-info-val"><a href="mailto:energy@aks-hithium.com" style="color:#fff;text-decoration:none">energy@aks-hithium.com</a></div></div>
+            <div><div class="cf-col-label">Phone</div><div class="cf-info-val">+4 53589 432285</div></div>
+            <div><div class="cf-col-label">Address</div><div class="cf-info-val">Dhaka, Bangladesh</div></div>
+          </div>
+          <div class="cf-social">
+            <div class="cf-col-label">Social</div>
+            <div class="cf-navcol"><a href="#">X/Twitter</a><a href="#">Youtube</a><a href="#">Linkedin</a><a href="#">Instagram</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cf-bottom"><p>All right reserve @2025</p><p>Made by SELISE TXL</p></div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function (i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>

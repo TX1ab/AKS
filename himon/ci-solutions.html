@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C&I Solutions — AKS Hithium</title>
+<meta name="description" content="Battery energy storage engineered for factories, processing plants, and data centres across Bangladesh. Cut energy costs, eliminate downtime, and meet decarbonisation standards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #1c1c1c; --white: #ffffff; --lime: #bde74e;
+    --primary: #065CB3; --grey: #4a4f59; --rule: #c6c7cc;
+    --sans: 'Geist', -apple-system, system-ui, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+  }
+  html { scroll-behavior: smooth; }
+  body { background: #fff; font-family: var(--sans); color: #1c1c1c; -webkit-font-smoothing: antialiased; }
+  a:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 4px; }
+  .hex { width: 10px; height: 12px; background: var(--primary); flex-shrink: 0; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+
+  /* ── Light header ─────────────────────────────────────────────── */
+  .site-header { height: 80px; border-bottom: 1px solid #f4f4f4; display: flex; align-items: center; background: #fff; position: sticky; top: 0; z-index: 50; }
+  .header-inner { width: 100%; max-width: 1470px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 20px; }
+  .logo { height: 30px; flex-shrink: 0; display: block; }
+  .logo img { height: 30px; width: 142px; display: block; }
+  .nav { flex: 1; display: flex; align-items: center; justify-content: center; gap: 25px; }
+  .nav a { color: #1c1c1c; text-decoration: none; font-size: 16px; font-weight: 500; letter-spacing: -0.32px; line-height: 24px; transition: opacity 0.15s; }
+  .nav a:hover { opacity: 0.6; }
+  .btn-contact { flex-shrink: 0; background: #1c1c1c; color: #f4f4f4; border-radius: 100px; padding: 8px 20px; font-size: 16px; font-weight: 500; letter-spacing: -0.32px; line-height: 24px; text-decoration: none; transition: background 0.15s; }
+  .btn-contact:hover { background: #333; }
+
+  .wrap { max-width: 1470px; margin: 0 auto; padding: 0 40px; }
+
+  /* ── CI hero ─────────────────────────────────────────────────── */
+  .ci-hero { padding: 128px 0; display: flex; flex-direction: column; gap: 80px; }
+  .ci-hero-top { display: flex; gap: 40px; align-items: flex-end; }
+  .ci-hero-title { flex: 1; min-width: 0; font-family: var(--sans); font-weight: 500; font-size: clamp(40px, 4.6vw, 64px); line-height: 1.12; letter-spacing: -1px; color: #1c1c1c; }
+  .ci-hero-right { flex-shrink: 0; width: 493px; max-width: 100%; display: flex; flex-direction: column; gap: 40px; align-items: flex-start; }
+  .ci-hero-right p { font-family: var(--sans); font-weight: 400; font-size: 16px; line-height: 24px; letter-spacing: -0.32px; color: var(--grey); }
+  .btn-dark { display: inline-flex; align-items: center; justify-content: center; height: 40px; padding: 8px 20px; border-radius: 100px; background: #1c1c1c; color: #fff; font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; text-decoration: none; transition: background 0.15s; }
+  .btn-dark:hover { background: #333; }
+  .ci-hero-img { width: 100%; height: 622px; border-radius: 6px; overflow: hidden; }
+  .ci-hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* ── Built for Industry ──────────────────────────────────────── */
+  .ci-industry-wrap { padding: 0 40px 40px; }
+  .ci-industry { max-width: 1470px; margin: 0 auto; background: #f0f0eb; border-radius: 6px; padding: 120px 40px; display: flex; align-items: flex-start; gap: 0; }
+  .ci-industry-eyebrow { width: 300px; flex-shrink: 0; display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-weight: 400; font-size: 14px; line-height: 16px; text-transform: uppercase; color: var(--grey); }
+  .ci-industry-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 40px; }
+  .ci-industry-statement { font-family: var(--sans); font-weight: 500; font-size: clamp(32px, 4.2vw, 56px); line-height: 1.14; letter-spacing: -1px; color: #1c1c1c; }
+  .ci-stats { display: flex; gap: 20px; }
+  .ci-stat { flex: 1; min-width: 0; background: #deded3; border-radius: 16px; padding: 20px 16px; display: flex; flex-direction: column; gap: 4px; justify-content: flex-end; }
+  .ci-stat .num { font-family: var(--sans); font-weight: 500; font-size: 32px; line-height: 40px; letter-spacing: -1px; color: #1c1c1c; }
+  .ci-stat .desc { font-family: var(--sans); font-weight: 400; font-size: 16px; line-height: 24px; color: var(--grey); }
+
+  /* ── Purpose-Built sectors ───────────────────────────────────── */
+  .ci-sectors { padding: 128px 0; display: flex; flex-direction: column; gap: 48px; }
+  .ci-sectors-head { display: flex; flex-direction: column; gap: 40px; }
+  .ci-eyebrow { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-weight: 400; font-size: 14px; line-height: 16px; text-transform: uppercase; color: var(--grey); }
+  .ci-sectors-titles { display: flex; flex-direction: column; gap: 16px; }
+  .ci-sectors-title { font-family: var(--sans); font-weight: 500; font-size: clamp(38px, 4.4vw, 56px); line-height: 1.14; letter-spacing: -1px; color: #1c1c1c; }
+  .ci-sectors-sub { font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; color: #1c1c1c; }
+  .ci-sector-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .ci-sector { position: relative; height: 510px; border-radius: 16px; overflow: hidden; display: flex; align-items: flex-end; padding: 40px 20px; }
+  .ci-sector img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .ci-sector::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(102,102,102,0)); }
+  .ci-sector span { position: relative; z-index: 1; font-family: var(--sans); font-weight: 500; font-size: 32px; line-height: 40px; letter-spacing: -1px; color: #f4f4f4; }
+
+  /* ── Three Reasons ───────────────────────────────────────────── */
+  .ci-reasons { padding: 64px 0 100px; display: flex; flex-direction: column; gap: 100px; }
+  .ci-reasons-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+  .ci-reasons-title { font-family: var(--sans); font-weight: 500; font-size: clamp(40px, 4.4vw, 56px); line-height: 1.14; letter-spacing: -1px; color: #1c1c1c; max-width: 800px; }
+  .ci-reasons-sub { width: 440px; max-width: 100%; font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; color: var(--grey); }
+  .ci-reasons-row { display: flex; border-radius: 16px; overflow: hidden; height: 648px; }
+  .ci-reason { position: relative; flex: 1; min-width: 0; overflow: hidden; }
+  .ci-reason img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .ci-reason::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.19)); opacity: 0.7; }
+  .ci-reason-body { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; justify-content: flex-end; gap: 16px; padding: 32px; }
+  .ci-reason-body h3 { font-family: var(--sans); font-weight: 500; font-size: 32px; line-height: 40px; letter-spacing: -1px; color: #fff; }
+  .ci-reason-body p { font-family: var(--sans); font-weight: 400; font-size: 16px; line-height: 24px; color: #fff; }
+
+  /* ── How Industry Puts Storage to Work (dark) ────────────────── */
+  .ci-work { background: #1c1c1c; color: #fff; padding: 128px 0; }
+  .ci-work .wrap { display: flex; flex-direction: column; gap: 40px; }
+  .ci-work-title { font-family: var(--sans); font-weight: 500; font-size: clamp(40px, 4.4vw, 56px); line-height: 1.14; letter-spacing: -1px; color: #fff; }
+  .ci-work-cards { display: flex; gap: 20px; }
+  .ci-work-card { flex: 1; min-width: 0; height: 400px; background: #262626; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+  .ci-work-card .icon { width: 60px; height: 50px; }
+  .ci-work-card .icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .ci-work-card .body { display: flex; flex-direction: column; gap: 16px; }
+  .ci-work-card h3 { font-family: var(--sans); font-weight: 500; font-size: 32px; line-height: 40px; letter-spacing: -1px; color: #fff; }
+  .ci-work-card p { font-family: var(--sans); font-weight: 400; font-size: 16px; line-height: 24px; color: #f4f4f4; }
+
+  /* ── Export Edge CTA ─────────────────────────────────────────── */
+  .ci-edge { padding: 128px 0 64px; }
+  .ci-edge .wrap { display: flex; align-items: flex-start; gap: 0; }
+  .ci-edge-eyebrow { width: 300px; flex-shrink: 0; display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-weight: 400; font-size: 14px; line-height: 21px; letter-spacing: -0.28px; text-transform: uppercase; color: #1c1c1c; }
+  .ci-edge-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 40px; align-items: flex-start; }
+  .ci-edge-title { font-family: var(--sans); font-weight: 500; font-size: clamp(40px, 4.4vw, 56px); line-height: 1.14; letter-spacing: -1px; color: #1c1c1c; }
+  .ci-edge-main > p { font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; color: var(--grey); max-width: 840px; }
+
+  /* ── CTA banner ──────────────────────────────────────────────── */
+  .ci-banner { padding: 128px 0 64px; }
+  .ci-banner-box { position: relative; max-width: 1390px; margin: 0 auto; height: 750px; border-radius: 32px; overflow: hidden; display: flex; align-items: flex-end; gap: 0; padding: 40px; }
+  .ci-banner-box img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .ci-banner-box::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, #000, rgba(0,0,0,0) 50%); }
+  .ci-banner-title { position: relative; z-index: 1; width: 840px; max-width: 60%; font-family: var(--sans); font-weight: 500; font-size: clamp(36px, 4.4vw, 56px); line-height: 1.14; letter-spacing: -1px; color: #fff; }
+  .ci-banner-right { position: relative; z-index: 1; flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 24px; justify-content: center; }
+  .ci-banner-right p { font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; color: #fff; max-width: 478px; }
+  .btn-light { align-self: flex-start; display: inline-flex; align-items: center; justify-content: center; height: 40px; padding: 8px 20px; border-radius: 100px; background: #fff; color: #1c1c1c; font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; text-decoration: none; transition: background 0.15s; }
+  .btn-light:hover { background: #ededed; }
+
+  /* ── Standards (reused) ──────────────────────────────────────── */
+  .standards { position: relative; background: #1c1c1c; overflow: hidden; }
+  .standards-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+  .standards-bg img { position: absolute; top: -20%; left: 0; width: 100%; height: 140%; object-fit: cover; object-position: center bottom; display: block; will-change: transform; }
+  .standards-veil { position: absolute; inset: 0; z-index: 0; background: linear-gradient(to bottom, #fff 0%, #fff 42%, rgba(255,255,255,0) 100%); }
+  .standards-inner { position: relative; z-index: 1; max-width: 1470px; margin: 0 auto; padding: 64px 40px 400px; display: flex; flex-direction: column; gap: 40px; align-items: center; }
+  .standards-header { text-align: center; display: flex; flex-direction: column; gap: 48px; align-items: center; }
+  .standards-head-texts { display: flex; flex-direction: column; gap: 16px; align-items: center; }
+  .standards-eyebrow { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-weight: 400; font-size: 14px; line-height: 16px; text-transform: uppercase; color: #4a4f59; }
+  .standards-title { font-family: var(--sans); font-weight: 500; font-size: 56px; line-height: 64px; letter-spacing: -1px; color: #1c1c1c; text-align: center; }
+  .standards-sub { font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; color: #4a4f59; text-align: center; }
+  .standards-certs { display: flex; align-items: center; justify-content: center; }
+  .cert-row { display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap; }
+  .cert { width: 160px; height: 160px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .cert img { height: 88px; width: auto; display: block; }
+
+  /* ── FAQ (reused) ────────────────────────────────────────────── */
+  .faq { background: #fff; color: #1c1c1c; padding: 128px 0; }
+  .faq-inner { max-width: 1216px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 48px; align-items: center; }
+  .faq-title { font-family: var(--sans); font-weight: 500; font-size: 56px; line-height: 64px; letter-spacing: -1px; color: #1c1c1c; text-align: center; }
+  .faq-list { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 1136px; }
+  .faq-item { border: 1px solid #f4f4f4; border-radius: 8px; background: #fff; overflow: hidden; }
+  .faq-q { width: 100%; text-align: left; background: none; border: none; cursor: pointer; padding: 20px 40px; min-height: 110px; display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; color: #4a4f59; }
+  .faq-icon { width: 24px; height: 24px; flex-shrink: 0; position: relative; }
+  .faq-icon::before, .faq-icon::after { content: ''; position: absolute; background: #1c1c1c; transition: transform 0.25s; }
+  .faq-icon::before { left: 2px; top: 11px; width: 20px; height: 2px; }
+  .faq-icon::after { left: 11px; top: 2px; width: 2px; height: 20px; }
+  .faq-item.open .faq-icon::after { transform: scaleY(0); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 40px; }
+  .faq-item.open .faq-a { max-height: 320px; padding: 0 40px 24px; }
+  .faq-a p { font-family: var(--sans); font-weight: 400; font-size: 16px; line-height: 24px; color: #4a4f59; margin: 0; max-width: 1000px; }
+
+  /* ── CTA + Footer (reused) ───────────────────────────────────── */
+  .cta-footer { background: #000; color: #fff; padding: 88px 0 72px; position: relative; overflow: hidden; }
+  .cf-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .cf-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .cf-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, #000 0%, #000 55%, rgba(0,0,0,0) 100%); }
+  .cta-footer-inner { position: relative; z-index: 1; max-width: 1470px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 120px; }
+  .cf-cta-block { display: flex; flex-direction: column; gap: 32px; align-items: center; text-align: center; }
+  .cf-cta-head { display: flex; flex-direction: column; gap: 16px; align-items: center; }
+  .cf-title { font-family: var(--sans); font-weight: 500; font-size: clamp(36px, 4.4vw, 56px); line-height: 1.14; letter-spacing: -1px; color: #fff; max-width: 560px; }
+  .cf-sub { font-size: 18px; line-height: 27px; letter-spacing: -0.36px; color: #fff; max-width: 504px; }
+  .cf-cta { display: inline-flex; align-items: center; gap: 20px; background: #fff; border-radius: 50px; padding: 8px 8px 8px 20px; text-decoration: none; transition: transform 0.15s; }
+  .cf-cta:hover { transform: translateY(-1px); }
+  .cf-cta-text { color: #1c1c1c; font-family: var(--sans); font-weight: 500; font-size: 18px; }
+  .cf-cta-icon { width: 52px; height: 52px; border-radius: 100px; background: #065CB3; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.2s; }
+  .cf-cta:hover .cf-cta-icon { transform: rotate(45deg); }
+  .cf-cta-icon svg { width: 20px; height: 20px; display: block; }
+  .cf-golden { font-size: 18px; line-height: 27px; letter-spacing: -0.36px; color: #fff; }
+  .cf-divider { height: 1px; background: #4a4f59; }
+  .cf-cols { display: flex; justify-content: space-between; gap: 56px; flex-wrap: wrap; }
+  .cf-col-label { font-family: var(--mono); font-weight: 500; font-size: 14px; line-height: 21px; text-transform: uppercase; color: #bdbdc2; margin-bottom: 16px; }
+  .cf-sitemap-cols { display: flex; gap: 64px; }
+  .cf-navcol { display: flex; flex-direction: column; gap: 4px; }
+  .cf-navcol a { font-family: var(--sans); font-weight: 500; font-size: 16px; line-height: 24px; letter-spacing: -0.32px; color: #fff; text-decoration: none; }
+  .cf-navcol a:hover { color: #bdbdc2; }
+  .cf-right { display: flex; gap: 56px; flex-wrap: wrap; }
+  .cf-contact { display: flex; flex-direction: column; gap: 24px; }
+  .cf-info-val { font-family: var(--sans); font-weight: 500; font-size: 16px; line-height: 24px; letter-spacing: -0.32px; color: #fff; margin-top: 8px; }
+  .cf-bottom { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .cf-bottom p { font-family: var(--mono); font-weight: 400; font-size: 14px; line-height: 21px; letter-spacing: -0.28px; text-transform: uppercase; color: #bdbdc2; margin: 0; }
+
+  /* ── Responsive ──────────────────────────────────────────────── */
+  @media (max-width: 1000px) {
+    .nav { display: none; }
+    .ci-hero-top, .ci-reasons-head, .ci-edge .wrap, .ci-industry { flex-direction: column; align-items: flex-start; gap: 32px; }
+    .ci-hero-right { width: 100%; }
+    .ci-industry-eyebrow, .ci-edge-eyebrow { width: auto; }
+    .ci-sector-grid { grid-template-columns: 1fr 1fr; }
+    .ci-stats, .ci-work-cards { flex-wrap: wrap; }
+    .ci-stat { flex: 1 1 45%; }
+    .ci-work-card { flex: 1 1 100%; height: auto; min-height: 320px; }
+    .ci-reasons-row { flex-direction: column; height: auto; }
+    .ci-reason { height: 420px; }
+    .ci-banner-box { flex-direction: column; align-items: flex-start; height: auto; gap: 32px; }
+    .ci-banner-title, .ci-banner-right p { max-width: 100%; width: 100%; }
+    .cf-cols { flex-direction: column; gap: 40px; }
+    .cf-right { flex-direction: column; gap: 32px; }
+  }
+  @media (max-width: 620px) {
+    .ci-sector-grid { grid-template-columns: 1fr; }
+    .ci-hero, .ci-sectors, .ci-work, .faq { padding: 72px 0; }
+    .header-inner, .wrap { padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="AKS Hithium home"><img src="assets/aks-logo-dark.svg" alt="AKS Hithium"></a>
+    <nav class="nav" aria-label="Main">
+      <a href="ci-solutions.html">C&amp;I Solutions</a>
+      <a href="utility-grid-scale.html">Utility &amp; Grid-Scale Solutions</a>
+      <a href="index.html#technology">Technology</a>
+      <a href="index.html#about">About Us</a>
+    </nav>
+    <a href="#contact" class="btn-contact">Contact</a>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="ci-hero wrap">
+  <div class="ci-hero-top">
+    <h1 class="ci-hero-title">Industrial Power You Can Count On —<br>Customised to Your Site.</h1>
+    <div class="ci-hero-right">
+      <p>Battery energy storage engineered for factories, processing plants, and data centres across Bangladesh. Cut energy costs, eliminate downtime, and meet the decarbonisation standards your buyers expect.</p>
+      <a href="#contact" class="btn-dark">Discuss Your Energy Goals</a>
+    </div>
+  </div>
+  <div class="ci-hero-img"><img src="assets/ci-hero.jpg" alt="A professional reviewing energy data on a tablet"></div>
+</section>
+
+<!-- Built for Industry -->
+<div class="ci-industry-wrap">
+  <div class="ci-industry">
+    <div class="ci-industry-eyebrow"><span class="hex" aria-hidden="true"></span>Built for Industry</div>
+    <div class="ci-industry-main">
+      <p class="ci-industry-statement">Every operation runs differently — so every system we build is different. We deliver containerised and cabinet BESS from 100 kWh to multiple MWh, configured to match your exact load profile, duty cycle, and site conditions. The result is power that fits how your plant actually runs, not a one-size-fits-all box.</p>
+      <div class="ci-stats">
+        <div class="ci-stat"><div class="num">150 GWh+</div><div class="desc">Hithium technology deployed worldwide</div></div>
+        <div class="ci-stat"><div class="num">11,000+ cycles</div><div class="desc">Charge cycles per LFP system</div></div>
+        <div class="ci-stat"><div class="num">2 GWh capacity</div><div class="desc">Annual assembly capacity in Bangladesh</div></div>
+        <div class="ci-stat"><div class="num">24/7 support</div><div class="desc">Dhaka-based monitoring and support</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Purpose-Built for Your Sector -->
+<section class="ci-sectors wrap">
+  <div class="ci-sectors-head">
+    <div class="ci-eyebrow"><span class="hex" aria-hidden="true"></span>Purpose to build</div>
+    <div class="ci-sectors-titles">
+      <h2 class="ci-sectors-title">Purpose-Built for Your Sector</h2>
+      <p class="ci-sectors-sub">From export-oriented manufacturing to temperature-critical storage, we understand the loads and stakes specific to your industry.</p>
+    </div>
+  </div>
+  <div class="ci-sector-grid">
+    <div class="ci-sector"><img src="assets/sector-garments.jpg" alt="Garments factory"><span>Garments</span></div>
+    <div class="ci-sector"><img src="assets/sector-textiles.jpg" alt="Textiles"><span>Textiles</span></div>
+    <div class="ci-sector"><img src="assets/sector-cold.jpg" alt="Cold storage"><span>Cold Storage</span></div>
+    <div class="ci-sector"><img src="assets/sector-agro.jpg" alt="Agro-processing"><span>Agro-processing</span></div>
+    <div class="ci-sector"><img src="assets/sector-pharma.png" alt="Pharmaceuticals"><span>Pharmaceuticals</span></div>
+    <div class="ci-sector"><img src="assets/sector-data.jpg" alt="Data centres"><span>Data Centres</span></div>
+  </div>
+</section>
+
+<!-- Three Reasons -->
+<section class="ci-reasons wrap">
+  <div class="ci-reasons-head">
+    <h2 class="ci-reasons-title">Three Reasons Industry<br>Chooses Storage</h2>
+    <p class="ci-reasons-sub">End-to-end trucking solutions for palletized goods, industrial materials, and commercial cargo.</p>
+  </div>
+  <div class="ci-reasons-row">
+    <div class="ci-reason"><img src="assets/reason-1.jpg" alt=""><div class="ci-reason-body"><h3>Lower Electricity Bills</h3><p>Shift consumption away from peak tariffs and cut diesel spend — turning energy from a volatile cost into a predictable, managed one.</p></div></div>
+    <div class="ci-reason"><img src="assets/reason-2.jpg" alt=""><div class="ci-reason-body"><h3>Higher Production Uptime</h3><p>Seamless backup keeps critical lines running through grid outages, protecting output, deadlines, and buyer confidence.</p></div></div>
+    <div class="ci-reason"><img src="assets/reason-3.jpg" alt=""><div class="ci-reason-body"><h3>A Smaller Carbon Footprint</h3><p>Cleaner energy use reduces emissions and supports the compliance evidence international buyers increasingly require.</p></div></div>
+  </div>
+</section>
+
+<!-- How Industry Puts Storage to Work -->
+<section class="ci-work">
+  <div class="wrap">
+    <h2 class="ci-work-title">How Industry Puts<br>Storage to Work</h2>
+    <div class="ci-work-cards">
+      <div class="ci-work-card">
+        <div class="icon"><img src="assets/ci-why-1.svg" alt=""></div>
+        <div class="body"><h3>Factory Power Assurance</h3><p>Seamless backup for critical loads the moment the grid fails — eliminating diesel generator runtime and the fuel, noise, and maintenance that come with it.</p></div>
+      </div>
+      <div class="ci-work-card">
+        <div class="icon"><img src="assets/ci-why-2.svg" alt=""></div>
+        <div class="body"><h3>Peak Demand Management</h3><p>Discharge stored energy during peak-tariff windows to slash monthly demand charges, without changing how your plant operates.</p></div>
+      </div>
+      <div class="ci-work-card">
+        <div class="icon"><img src="assets/ci-why-3.svg" alt=""></div>
+        <div class="body"><h3>PV + Storage Integration</h3><p>Maximise rooftop solar by storing daytime surplus for evening production or low-light periods — getting full value from every panel you've installed.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Export Edge -->
+<section class="ci-edge">
+  <div class="wrap">
+    <div class="ci-edge-eyebrow"><span class="hex" aria-hidden="true"></span>Investors and Partners</div>
+    <div class="ci-edge-main">
+      <h2 class="ci-edge-title">Power That Protects Your Export Edge</h2>
+      <p>International buyers are raising the bar on sustainability — demanding proof of cleaner production, not just promises. By integrating renewable energy and cutting diesel reliance, our storage systems help you generate the decarbonisation evidence that keeps you compliant, competitive, and first in line for global orders.</p>
+      <a href="#contact" class="btn-dark">Talk to Our Team</a>
+    </div>
+  </div>
+</section>
+
+<!-- Engineered to International Standards -->
+<section class="standards">
+  <div class="standards-bg"><img src="assets/standards-bg-new.png" alt=""></div>
+  <div class="standards-veil" aria-hidden="true"></div>
+  <div class="standards-inner">
+    <div class="standards-eyebrow"><span class="hex" aria-hidden="true"></span>Certifications &amp; Safety</div>
+    <div class="standards-header">
+      <div class="standards-head-texts">
+        <h2 class="standards-title">Engineered to<br>International Standards</h2>
+        <p class="standards-sub">Every system is certified, safety-tested, and factory-validated before it ships.</p>
+      </div>
+      <div class="standards-certs">
+        <div class="cert-row">
+          <div class="cert"><img src="assets/cert-new-1.svg" alt="IEC 62619"></div>
+          <div class="cert"><img src="assets/cert-new-2.svg" alt="Fire safety"></div>
+          <div class="cert"><img src="assets/cert-new-3.svg" alt="BMS"></div>
+          <div class="cert"><img src="assets/cert-new-4.svg" alt="UL 1973"></div>
+          <div class="cert"><img src="assets/cert-new-5.svg" alt="UN Transport"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA banner -->
+<section class="ci-banner">
+  <div class="ci-banner-box">
+    <img src="assets/ci-cta-banner.jpg" alt="">
+    <h2 class="ci-banner-title">Find Out What Storage Could Save You.</h2>
+    <div class="ci-banner-right">
+      <p>Share your site and load details, and our engineering team will assess the right system size, configuration, and expected return for your operation.</p>
+      <a href="#contact" class="btn-light">Request a Site Assessment</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" type="button">What size system does my factory need?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>It depends on your load profile and goals — backup, peak shaving, or solar integration. Our site assessment sizes the exact system for your operation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">How quickly can a system pay for itself?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Payback varies by tariff structure, diesel spend, and usage pattern. Most industrial sites see returns through reduced demand charges and fuel savings — we model this for you during assessment.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Can storage integrate with my existing solar?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Yes. We design systems to capture and store rooftop solar surplus, extending its value into evening or low-light operation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Is it safe to install near my production floor?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Yes. LFP chemistry is inherently stable, and every system includes multi-layer battery management, fire suppression, and full certification (IEC 62619, UL 1973).</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">What happens after installation?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Our Dhaka-based team provides 24/7 monitoring, rapid field response, and warranty management — the system is supported for its full lifecycle.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + Footer -->
+<footer class="cta-footer" id="contact">
+  <div class="cf-bg" aria-hidden="true"><img src="assets/cta-footer-bg.png" alt=""></div>
+  <div class="cta-footer-inner">
+    <div class="cf-cta-block">
+      <div class="cf-cta-head">
+        <h2 class="cf-title">Let's Power Your Next Chapter of Growth.</h2>
+        <p class="cf-sub">Whether you're securing a factory or stabilising the grid, our team is ready to design the right storage solution.</p>
+      </div>
+      <a href="mailto:energy@aks-hithium.com" class="cf-cta">
+        <span class="cf-cta-text">Discuss Your Energy Goals</span>
+        <span class="cf-cta-icon" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 15L15 5M15 5H7M15 5V13" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <p class="cf-golden">Join us in powering a golden future.</p>
+    </div>
+    <div>
+      <div class="cf-divider"></div>
+      <div class="cf-cols" style="margin-top:56px">
+        <div class="cf-sitemap">
+          <div class="cf-col-label">Sitemap</div>
+          <div class="cf-sitemap-cols">
+            <div class="cf-navcol">
+              <a href="index.html">Home</a>
+              <a href="index.html#about">About us</a>
+              <a href="ci-solutions.html">C&amp;I Solutions</a>
+              <a href="utility-grid-scale.html">Utility &amp; Grid-Scale</a>
+              <a href="index.html#technology">Technology</a>
+            </div>
+            <div class="cf-navcol">
+              <a href="#">Term &amp; Service</a>
+              <a href="#">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+        <div class="cf-right">
+          <div class="cf-contact">
+            <div><div class="cf-col-label">Email &amp; Support</div><div class="cf-info-val"><a href="mailto:energy@aks-hithium.com" style="color:#fff;text-decoration:none">energy@aks-hithium.com</a></div></div>
+            <div><div class="cf-col-label">Phone</div><div class="cf-info-val">+4 53589 432285</div></div>
+            <div><div class="cf-col-label">Address</div><div class="cf-info-val">Dhaka, Bangladesh</div></div>
+          </div>
+          <div class="cf-social">
+            <div class="cf-col-label">Social</div>
+            <div class="cf-navcol"><a href="#">X/Twitter</a><a href="#">Youtube</a><a href="#">Linkedin</a><a href="#">Instagram</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cf-bottom"><p>All right reserve @2025</p><p>Made by SELISE TXL</p></div>
+  </div>
+</footer>
+
+<script>
+  // Standards image parallax
+  (function () {
+    var sbg = document.querySelector('.standards-bg img');
+    var sec = document.querySelector('.standards');
+    if (!sbg || !sec) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    function apply() {
+      var rect = sec.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+      var progress = -rect.top / sec.offsetHeight;
+      sbg.style.transform = 'translate3d(0,' + (progress * sec.offsetHeight * 0.3) + 'px,0)';
+    }
+    window.addEventListener('scroll', apply, { passive: true });
+    apply();
+  })();
+
+  document.querySelectorAll('.faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function (i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="xMidYMid meet" style="display: block;" viewBox="0 0 60 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Image">
+<path id="Vector" d="M41.923 13.827V35.172L23.437 45.845L4.953 35.172V13.827L23.438 3.154L41.923 13.827Z" stroke="var(--stroke-0, #BAD9F7)" stroke-width="2"/>
+<path id="Vector_2" d="M36.485 2.1875L55.97 13.4375V35.9375L36.484 47.1875L17 35.9375V13.4375L36.485 2.1875Z" fill="var(--fill-0, #BAD9F7)"/>
+<g id="Isolation_Mode" clip-path="url(#clip0_0_21)">
+<path id="Vector_3" d="M34.0215 39.8406L36.8791 28.0972H29.2636C29.0562 28.0972 28.9303 27.8563 29.0413 27.672L39.5011 10.3178C39.6616 10.0516 40.0527 10.2293 39.9785 10.5348L37.1209 22.2782H44.7364C44.9438 22.2782 45.0697 22.5191 44.9587 22.7034L34.499 40.0578C34.3386 40.324 33.9475 40.1463 34.0217 39.8408L34.0215 39.8406Z" fill="var(--fill-0, #262626)"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_0_21">
+<rect width="16" height="30" fill="white" transform="translate(29 10.1875)"/>
+</clipPath>
+</defs>
+</svg>

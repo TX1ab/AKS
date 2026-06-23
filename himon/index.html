@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AKS Hithium — Nation-Building Energy Storage. Secure Power.</title>
+<meta name="description" content="AKS Hithium Energy brings global Tier-1 battery energy storage to Bangladesh — pairing world-class technology with local commitment. Reliable power for industry, manufacturing, and the national grid.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #1c1c1c;
+    --white: #ffffff;
+    --lime: #bde74e;
+    --line: rgba(255,255,255,0.15);
+    --sans: 'Geist', -apple-system, system-ui, sans-serif;
+    --mono: 'Geist Mono', ui-monospace, monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); font-family: var(--sans); color: var(--white); -webkit-font-smoothing: antialiased; }
+
+  /* ── Hero shell ─────────────────────────────────────────────── */
+  .hero { position: relative; min-height: 100vh; background: var(--bg); overflow: hidden; isolation: isolate; }
+  .hero-bg {
+    position: absolute; top: -20%; left: 0; width: 100%; height: 140%;
+    object-fit: cover; object-position: center 60%; z-index: -2; pointer-events: none;
+    will-change: transform;
+  }
+  /* BESS render sits on a light field — darken enough for white headline/CTA/lede legibility */
+  .hero-veil {
+    position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.4) 42%, rgba(0,0,0,0.12) 72%, rgba(0,0,0,0.18) 100%),
+      linear-gradient(180deg, rgba(0,0,0,0.42) 0%, rgba(0,0,0,0.08) 32%, rgba(0,0,0,0.22) 100%);
+  }
+
+  /* ── Header ─────────────────────────────────────────────────── */
+  .header { height: 80px; border-bottom: 1px solid var(--line); display: flex; align-items: center; }
+  .header-inner { width: 100%; max-width: 1470px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; gap: 20px; }
+  .logo { height: 30px; flex-shrink: 0; display: block; }
+  .logo img { height: 30px; width: 142px; aspect-ratio: 141.8 / 30; display: block; }
+  .nav { flex: 1; display: flex; align-items: center; justify-content: center; gap: 25px; }
+  .nav a { color: var(--white); text-decoration: none; font-size: 16px; font-weight: 500; letter-spacing: -0.32px; line-height: 24px; transition: opacity 0.15s; }
+  .nav a:hover { opacity: 0.65; }
+  .btn-contact { flex-shrink: 0; background: var(--white); color: var(--bg); border-radius: 100px; padding: 8px 20px; font-size: 16px; font-weight: 500; letter-spacing: -0.32px; line-height: 24px; text-decoration: none; transition: background 0.15s; }
+  .btn-contact:hover { background: #ededed; }
+
+  /* ── Content layout ─────────────────────────────────────────── */
+  .hero-body { max-width: 1470px; margin: 0 auto; padding: 28px 40px 56px; display: flex; min-height: calc(100vh - 80px); }
+  .rail { width: 347px; flex-shrink: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 0 0 40px; }
+  .rail-label { font-family: var(--mono); font-size: 14px; font-weight: 500; line-height: 21px; text-transform: uppercase; }
+  .rail-mark { width: 24px; height: 24px; background: var(--white); }
+
+  .main { flex: 1; min-width: 0; position: relative; padding-left: 40px; display: flex; flex-direction: column; justify-content: space-between; }
+  .main::before { content: ''; position: absolute; left: 0; top: -28px; bottom: -56px; width: 1px; background: var(--line); }
+  .main-top { display: flex; flex-direction: column; gap: 40px; padding-top: 0; }
+
+  .headline { font-weight: 500; font-size: 70px; line-height: 70px; letter-spacing: -2.8px; color: var(--white); }
+
+  /* CTAs */
+  .cta-row { display: flex; gap: 24px; flex-wrap: wrap; }
+  .cta { display: inline-flex; align-items: center; gap: 20px; border-radius: 50px; padding: 8px 8px 8px 20px; text-decoration: none; transition: transform 0.15s; border: 1px solid transparent; }
+  .cta:hover { transform: translateY(-1px); }
+  .cta-primary { background: var(--white); }
+  .cta-primary .cta-text { color: var(--bg); }
+  .cta-secondary { background: transparent; border-color: var(--white); }
+  .cta-secondary .cta-text { color: var(--white); }
+  .cta-text { font-size: 16px; font-weight: 500; letter-spacing: -0.32px; line-height: 24px; white-space: nowrap; }
+  .cta-icon { width: 52px; height: 52px; border-radius: 100px; background: #065CB3; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.25s ease; }
+  .cta:hover .cta-icon { transform: rotate(45deg); }
+  .cta-icon svg { width: 20px; height: 20px; display: block; }
+
+  /* Bottom subhead */
+  .main-bottom { padding: 32px 0 0; }
+  .main-bottom-divider { height: 1px; background: var(--line); margin-bottom: 32px; }
+  .lede { font-size: 18px; font-weight: 500; line-height: 27px; letter-spacing: -0.36px; color: var(--white); max-width: 766px; }
+
+  /* ── Responsive ─────────────────────────────────────────────── */
+  @media (max-width: 1100px) { .headline { font-size: 56px; line-height: 56px; letter-spacing: -2.2px; } }
+  @media (max-width: 860px) {
+    .nav { display: none; }
+    .hero-body { flex-direction: column; gap: 32px; padding: 48px 24px 40px; }
+    .rail { flex-direction: row; align-items: center; justify-content: space-between; width: 100%; padding: 0; }
+    .main { padding-left: 0; }
+    .main::before { display: none; }
+    .headline { font-size: clamp(40px, 11vw, 56px); line-height: 1.0; letter-spacing: -1.8px; }
+    .header-inner { padding: 0 24px; }
+    .cta, .cta-secondary { width: 100%; justify-content: space-between; }
+    .hero-veil { background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.2) 40%, rgba(0,0,0,0.55) 100%); }
+  }
+  @media (max-width: 480px) { .lede { font-size: 16px; line-height: 24px; } .rail-mark { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .cta, .cta-icon { transition: none; } .cta:hover .cta-icon { transform: none; } }
+
+  a:focus-visible { outline: 2px solid var(--lime); outline-offset: 3px; border-radius: 4px; }
+
+  /* ── About section (Figma 153:566) ──────────────────────────── */
+  .about {
+    --primary: #065CB3;
+    --grey: #4a4f59;
+    --rule: #c6c7cc;
+    background: #ffffff; color: #1c1c1c;
+    padding: 96px 0;
+  }
+  .about-inner {
+    max-width: 1470px; margin: 0 auto; padding: 0 40px;
+    display: flex; flex-direction: column; gap: clamp(72px, 11vw, 164px);
+  }
+  .about-header { display: flex; gap: 32px; align-items: flex-start; }
+  .about-eyebrow {
+    width: 347px; flex-shrink: 0; padding-top: 12px;
+    display: flex; align-items: center; gap: 12px;
+    font-family: var(--mono); font-weight: 400; font-size: 14px; line-height: 21px;
+    letter-spacing: -0.02em; text-transform: uppercase; color: #1c1c1c;
+  }
+  .about-eyebrow .sq { width: 10px; height: 12px; background: var(--primary); flex-shrink: 0; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+  .about-title {
+    font-family: var(--sans); font-weight: 500; font-size: clamp(32px, 4.4vw, 56px);
+    line-height: 1.07; letter-spacing: -0.4px; color: #000; max-width: 1011px;
+  }
+  .about-content { display: flex; gap: 64px; align-items: flex-start; }
+  .about-img { flex: 0 0 695px; max-width: 695px; border-radius: 6px; overflow: hidden; height: 463px; }
+  .about-img img { position: relative; top: -20%; width: 100%; height: 140%; object-fit: cover; display: block; will-change: transform; }
+  .about-stats { flex: 1; min-width: 0; max-width: 641px; display: flex; flex-direction: column; gap: 48px; }
+  .about-stat-list { display: flex; flex-direction: column; gap: 16px; }
+  .about-stat { display: flex; align-items: center; gap: 16px; padding: 8px 0; }
+  .about-stat .num {
+    flex: 0 0 350px; max-width: 350px;
+    font-family: var(--sans); font-weight: 500; font-size: 44px; line-height: 1.1;
+    letter-spacing: -2.4px; color: #1c1c1c;
+  }
+  .about-stat .desc {
+    flex: 1; min-width: 0;
+    font-family: var(--sans); font-weight: 400; font-size: 16px; line-height: 24px;
+    letter-spacing: -0.32px; color: var(--grey);
+  }
+  .about-rule { height: 1px; background: var(--rule); border: none; width: 100%; }
+  .about-cta {
+    align-self: flex-start; background: #1c1c1c; color: #fff;
+    border-radius: 100px; padding: 8px 20px; height: 40px;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-family: var(--sans); font-weight: 500; font-size: 16px; line-height: 24px;
+    letter-spacing: -0.32px; text-decoration: none; transition: background 0.15s;
+  }
+  .about-cta:hover { background: #333; }
+
+  @media (max-width: 980px) {
+    .about-header { flex-direction: column; gap: 16px; }
+    .about-eyebrow { width: auto; padding-top: 0; }
+    .about-content { flex-direction: column; gap: 40px; }
+    .about-img { flex: none; max-width: 100%; width: 100%; }
+    .about-stats { max-width: 100%; }
+  }
+  @media (max-width: 560px) {
+    .about { padding: 64px 0; }
+    .about-stat { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .about-stat .num { flex: none; font-size: 36px; letter-spacing: -1.6px; }
+    .about-eyebrow { width: auto; }
+  }
+
+  /* Shared light-section eyebrow */
+  .sec-eyebrow {
+    width: 347px; flex-shrink: 0; padding-top: 12px;
+    display: flex; align-items: center; gap: 12px;
+    font-family: var(--mono); font-weight: 400; font-size: 14px; line-height: 21px;
+    letter-spacing: -0.02em; text-transform: uppercase; color: #1c1c1c;
+  }
+  .sec-eyebrow .sq { width: 10px; height: 12px; background: #065CB3; flex-shrink: 0; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+
+  /* ── Solutions preview (Figma 184:366) ──────────────────────── */
+  .solutions { background: #fff; color: #1c1c1c; padding: 128px 0; }
+  .solutions-inner { max-width: 1470px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 48px; }
+  .sol-header { display: flex; gap: 20px; align-items: flex-start; }
+  .sol-head-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+  .sol-title { font-family: var(--sans); font-weight: 500; font-size: clamp(38px, 4.6vw, 64px); line-height: 1.1; letter-spacing: -3.2px; color: #1c1c1c; max-width: 996px; }
+  .sol-sub { font-size: 16px; line-height: 24px; letter-spacing: -0.32px; color: #1c1c1c; }
+  .sol-cards { display: flex; gap: 20px; align-items: stretch; }
+  .sol-card { background: #f0f0eb; border-radius: 16px; padding: 32px; min-height: 520px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+  .sol-card.ci { width: 685px; flex-shrink: 0; }
+  .sol-card.grid { flex: 1; min-width: 0; }
+  .sol-card-title { font-family: var(--sans); font-weight: 500; font-size: 32px; line-height: 1.3; letter-spacing: -1.28px; color: #1c1c1c; white-space: nowrap; }
+  .sol-card-desc { font-size: 16px; line-height: 24px; letter-spacing: -0.32px; color: #1c1c1c; opacity: 0.8; margin-top: 16px; max-width: 439px; }
+  .sol-card-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; font-family: var(--sans); font-weight: 500; font-size: 16px; letter-spacing: -0.32px; color: #000; text-decoration: none; transition: gap 0.15s; }
+  .sol-card-link svg { width: 16px; height: 16px; }
+  .sol-card-link:hover { gap: 14px; }
+  .sol-card-img { height: 216px; border-radius: 16px; overflow: hidden; flex-shrink: 0; }
+  .sol-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  @media (max-width: 980px) {
+    .solutions { padding: 80px 0; }
+    .sol-header { flex-direction: column; gap: 16px; }
+    .sec-eyebrow { width: auto; padding-top: 0; }
+    .sol-cards { flex-direction: column; }
+    .sol-card.ci { width: 100%; }
+    .sol-card { min-height: 0; }
+  }
+  @media (max-width: 560px) {
+    .sol-card-title { white-space: normal; font-size: 26px; letter-spacing: -1px; }
+  }
+
+  /* ── Why Hithium (Figma 184:407) ────────────────────────────── */
+  .why { background: #1c1c1c; color: #fff; padding: 128px 0; }
+  .why-inner { max-width: 1470px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 56px; }
+  .why-eyebrow { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-weight: 400; font-size: 14px; line-height: 21px; letter-spacing: -0.02em; text-transform: uppercase; color: #fff; }
+  .why-eyebrow .sq { width: 10px; height: 12px; background: #ffffff; flex-shrink: 0; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+  .why-cards { display: flex; gap: 20px; align-items: stretch; }
+  .why-card { flex: 1; min-width: 0; height: 400px; padding: 32px; border-radius: 6px; position: relative; overflow: hidden; }
+  .why-card.c1 { background: #baf7c4; }
+  .why-card.c2 { background: #bad9f7; }
+  .why-card.c3 { background: #c2c2ef; }
+  .why-card-title { font-family: var(--sans); font-weight: 500; font-size: 32px; line-height: 1.3; letter-spacing: -1.28px; color: #1c1c1c; white-space: nowrap; position: relative; z-index: 1; }
+  .why-card-desc { font-family: var(--sans); font-weight: 500; font-size: 16px; line-height: 24px; letter-spacing: -0.32px; color: #1c1c1c; opacity: 0.8; margin-top: 16px; position: relative; z-index: 1; }
+  .why-icon { position: absolute; pointer-events: none; display: block; }
+  .why-card.c1 .why-icon { width: 160px; height: 170px; right: 24px; bottom: -5px; transform: rotate(-90deg); transform-origin: center; }
+  .why-card.c2 .why-icon { width: 160px; height: 160px; right: 24px; bottom: 24px; }
+  .why-card.c3 .why-icon { width: 163px; height: 214px; right: 8px; bottom: -28px; }
+
+  @media (max-width: 980px) {
+    .why { padding: 80px 0; }
+    .why-cards { flex-direction: column; }
+    .why-card { height: auto; min-height: 320px; }
+  }
+
+  /* ── How we Work (Figma 184:468) ────────────────────────────── */
+  .how { background: #1c1c1c; color: #fff; padding: 120px 0; }
+  .how-inner { max-width: 1470px; margin: 0 auto; padding: 0 40px; display: flex; gap: 64px; align-items: flex-start; }
+  .how-left { width: 500px; flex-shrink: 0; position: sticky; top: 88px; align-self: flex-start; }
+  .how-eyebrow { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-weight: 400; font-size: 14px; line-height: 21px; letter-spacing: -0.02em; text-transform: uppercase; color: #fff; }
+  .how-eyebrow .sq { width: 10px; height: 12px; background: #ffffff; flex-shrink: 0; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+  .how-title { font-family: var(--sans); font-weight: 500; font-size: clamp(40px, 4.4vw, 64px); line-height: 1.1; letter-spacing: -3.2px; margin-top: 32px; }
+  .how-sub { color: #bdbdc2; font-size: 16px; line-height: 24px; letter-spacing: -0.32px; margin-top: 20px; max-width: 500px; }
+  .how-right { flex: 1; min-width: 0; }
+  .how-steps { position: relative; display: flex; flex-direction: column; gap: 56px; }
+  .how-steps::before { content: ''; position: absolute; left: 29px; top: 30px; bottom: 430px; width: 0; border-left: 2px dashed #4a4f59; }
+  .how-steps::after { content: ''; position: absolute; left: 29px; top: 30px; height: var(--how-progress, 0px); width: 2px; background: #065CB3; transition: height 0.12s linear; }
+  .how-step { display: flex; gap: 40px; align-items: flex-start; position: relative; }
+  .how-badge { width: 60px; height: 60px; border-radius: 50%; background: #1c1c1c; border: 1px solid #065CB3; display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-size: 18px; letter-spacing: -0.36px; color: #fff; flex-shrink: 0; position: relative; z-index: 1; }
+  .how-step.last .how-badge { border-color: #4a4f59; }
+  .how-step-content { flex: 1; min-width: 0; max-width: 500px; }
+  .how-step-img { width: 100%; height: 280px; border-radius: 6px; overflow: hidden; }
+  .how-step-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .how-step-title { font-family: var(--sans); font-weight: 500; font-size: 32px; line-height: 1.3; letter-spacing: -1.28px; margin-top: 40px; }
+  .how-step-desc { color: #bdbdc2; font-size: 16px; line-height: 24px; letter-spacing: -0.32px; margin-top: 16px; }
+
+  @media (max-width: 980px) {
+    .how { padding: 80px 0; }
+    .how-inner { flex-direction: column; gap: 40px; }
+    .how-left { position: static; width: 100%; }
+    .how-step { gap: 20px; }
+    .how-steps::before, .how-steps::after { left: 23px; }
+    .how-badge { width: 48px; height: 48px; }
+    .how-steps::before, .how-steps::after { left: 23px; }
+  }
+  @media (max-width: 560px) {
+    .how-step-img { height: 200px; }
+    .how-step-title { font-size: 26px; letter-spacing: -1px; }
+  }
+
+  /* ── Partners (Figma 184:530) ───────────────────────────────── */
+  .partners { background: #fff; color: #1c1c1c; padding: 128px 0; }
+  .partners-inner { max-width: 1470px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 48px; align-items: center; }
+  .partners-header { display: flex; flex-direction: column; gap: 24px; align-items: center; text-align: center; }
+  .partners-eyebrow { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-weight: 400; font-size: 14px; line-height: 21px; letter-spacing: -0.02em; text-transform: uppercase; color: #000; }
+  .partners-eyebrow .sq { width: 10px; height: 12px; background: #065CB3; flex-shrink: 0; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+  .partners-title { font-family: var(--sans); font-weight: 500; font-size: clamp(36px, 4vw, 56px); line-height: 1.0; letter-spacing: -1.68px; color: #000; }
+  .partners-sub { font-size: 16px; line-height: 24px; letter-spacing: -0.32px; color: #4a4f59; max-width: 840px; }
+  .partners-cards { display: flex; gap: 49px; justify-content: center; flex-wrap: wrap; }
+  .partner-card2 { border: 1px solid #d5d5d5; border-radius: 8px; padding: 24px; width: 431px; max-width: 100%; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+  .partner-logo { height: 56px; display: flex; align-items: center; }
+  .partner-logo img { max-height: 44px; width: auto; max-width: 170px; object-fit: contain; display: block; }
+  .partner-card2 p { font-size: 16px; line-height: 24px; letter-spacing: -0.32px; color: #4a4f59; margin: 0; }
+
+  @media (max-width: 980px) {
+    .partners { padding: 80px 0; }
+    .partner-card2 { width: 100%; max-width: 431px; }
+  }
+
+  /* ── Standards (Figma 184:548) ──────────────────────────────── */
+  .standards { position: relative; background: #1c1c1c; overflow: hidden; }
+  .standards-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+  .standards-bg img { position: absolute; top: -20%; left: 0; width: 100%; height: 140%; object-fit: cover; object-position: center bottom; display: block; will-change: transform; }
+  .standards-veil { position: absolute; inset: 0; z-index: 0; background: linear-gradient(to bottom, #fff 0%, #fff 42%, rgba(255,255,255,0) 100%); }
+  .standards-inner { position: relative; z-index: 1; max-width: 1470px; margin: 0 auto; padding: 64px 40px 400px; display: flex; flex-direction: column; gap: 40px; align-items: center; }
+  .standards-header { text-align: center; display: flex; flex-direction: column; gap: 48px; align-items: center; }
+  .standards-head-texts { display: flex; flex-direction: column; gap: 16px; align-items: center; }
+  .standards-eyebrow { display: flex; align-items: center; gap: 12px; font-family: var(--mono); font-weight: 400; font-size: 14px; line-height: 16px; letter-spacing: 0; text-transform: uppercase; color: #4a4f59; }
+  .standards-eyebrow .sq { width: 10px; height: 12px; background: #065CB3; flex-shrink: 0; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%); }
+  .standards-title { font-family: var(--sans); font-weight: 500; font-size: 56px; line-height: 64px; letter-spacing: -1px; color: #1c1c1c; text-align: center; }
+  .standards-sub { font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; letter-spacing: 0; color: #4a4f59; text-align: center; }
+  .standards-certs { display: flex; align-items: center; justify-content: center; }
+  .cert-row { display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap; }
+  .cert { width: 160px; height: 160px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .cert img { height: 88px; width: auto; display: block; }
+  .standards-caption { text-align: center; color: #000; font-size: 16px; line-height: 24px; letter-spacing: -0.32px; max-width: 620px; }
+
+  @media (max-width: 980px) {
+    .standards-inner { padding: 80px 24px 240px; gap: 40px; }
+    .cert-row { gap: 48px; }
+    .cert, .cert img { height: 60px; }
+    .cert.c1 img { width: 61px; } .cert.c2 img { width: 181px; } .cert.c3 img { width: 30px; } .cert.c4 img { width: 51px; } .cert.c5 img { width: 50px; }
+  }
+
+  /* ── FAQ (Figma 210:616) ────────────────────────────────────── */
+  .faq { background: #fff; color: #1c1c1c; padding: 128px 0; }
+  .faq-inner { max-width: 1216px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 48px; align-items: center; }
+  .faq-title { font-family: var(--sans); font-weight: 500; font-size: 56px; line-height: 64px; letter-spacing: -1px; color: #1c1c1c; text-align: center; }
+  .faq-list { display: flex; flex-direction: column; gap: 20px; width: 100%; max-width: 1136px; }
+  .faq-item { border: 1px solid #f4f4f4; border-radius: 8px; background: #fff; overflow: hidden; }
+  .faq-q { width: 100%; text-align: left; background: none; border: none; cursor: pointer; padding: 20px 40px; min-height: 110px; display: flex; align-items: center; justify-content: space-between; gap: 24px; font-family: var(--sans); font-weight: 500; font-size: 18px; line-height: 24px; letter-spacing: 0; color: #4a4f59; }
+  .faq-icon { width: 24px; height: 24px; flex-shrink: 0; position: relative; }
+  .faq-icon::before, .faq-icon::after { content: ''; position: absolute; background: #1c1c1c; transition: transform 0.25s; }
+  .faq-icon::before { left: 2px; top: 11px; width: 20px; height: 2px; }
+  .faq-icon::after { left: 11px; top: 2px; width: 2px; height: 20px; }
+  .faq-item.open .faq-icon::after { transform: scaleY(0); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease, padding 0.3s ease; padding: 0 40px; }
+  .faq-item.open .faq-a { max-height: 320px; padding: 0 40px 24px; }
+  .faq-a p { font-family: var(--sans); font-weight: 400; font-size: 16px; line-height: 24px; letter-spacing: 0; color: #4a4f59; margin: 0; max-width: 1000px; }
+
+  @media (max-width: 700px) {
+    .faq { padding: 80px 0; }
+    .faq-q { font-size: 18px; padding: 20px 24px; }
+    .faq-a, .faq-item.open .faq-a { padding-left: 24px; padding-right: 24px; }
+  }
+
+  /* ── CTA + Footer (Figma 184:669) ───────────────────────────── */
+  .cta-footer { background: #000; color: #fff; padding: 88px 0 72px; position: relative; overflow: hidden; }
+  .cf-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+  .cf-bg img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .cf-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, #000 0%, #000 55%, rgba(0,0,0,0) 100%); }
+  .cta-footer-inner { position: relative; z-index: 1; max-width: 1470px; margin: 0 auto; padding: 0 40px; display: flex; flex-direction: column; gap: 120px; }
+  .cf-cta-block { display: flex; flex-direction: column; gap: 32px; align-items: center; text-align: center; }
+  .cf-cta-head { display: flex; flex-direction: column; gap: 16px; align-items: center; }
+  .cf-title { font-family: var(--sans); font-weight: 500; font-size: clamp(36px, 4.4vw, 56px); line-height: 1.14; letter-spacing: -1px; color: #fff; max-width: 560px; }
+  .cf-sub { font-size: 18px; line-height: 27px; letter-spacing: -0.36px; color: #fff; max-width: 504px; }
+  .cf-cta { display: inline-flex; align-items: center; gap: 20px; background: #fff; border-radius: 50px; padding: 8px 8px 8px 20px; text-decoration: none; transition: transform 0.15s; }
+  .cf-cta:hover { transform: translateY(-1px); }
+  .cf-cta-text { color: #1c1c1c; font-family: var(--sans); font-weight: 500; font-size: 18px; }
+  .cf-cta-icon { width: 52px; height: 52px; border-radius: 100px; background: #065CB3; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.2s; }
+  .cf-cta:hover .cf-cta-icon { transform: rotate(45deg); }
+  .cf-cta-icon svg { width: 20px; height: 20px; display: block; }
+  .cf-golden { font-size: 18px; line-height: 27px; letter-spacing: -0.36px; color: #fff; }
+  .cf-divider { height: 1px; background: #4a4f59; }
+  .cf-cols { display: flex; justify-content: space-between; gap: 56px; flex-wrap: wrap; }
+  .cf-col-label { font-family: var(--mono); font-weight: 500; font-size: 14px; line-height: 21px; text-transform: uppercase; color: #bdbdc2; margin-bottom: 16px; }
+  .cf-sitemap-cols { display: flex; gap: 64px; }
+  .cf-navcol { display: flex; flex-direction: column; gap: 4px; }
+  .cf-navcol a { font-family: var(--sans); font-weight: 500; font-size: 16px; line-height: 24px; letter-spacing: -0.32px; color: #fff; text-decoration: none; }
+  .cf-navcol a:hover { color: #bdbdc2; }
+  .cf-right { display: flex; gap: 56px; flex-wrap: wrap; }
+  .cf-contact { display: flex; flex-direction: column; gap: 24px; }
+  .cf-info-val { font-family: var(--sans); font-weight: 500; font-size: 16px; line-height: 24px; letter-spacing: -0.32px; color: #fff; margin-top: 8px; }
+  .cf-bottom { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .cf-bottom p { font-family: var(--mono); font-weight: 400; font-size: 14px; line-height: 21px; letter-spacing: -0.28px; text-transform: uppercase; color: #bdbdc2; margin: 0; }
+
+  @media (max-width: 860px) {
+    .cta-footer { padding: 64px 0 48px; }
+    .cta-footer-inner { gap: 72px; }
+    .cf-cols { flex-direction: column; gap: 40px; }
+    .cf-sitemap-cols { gap: 40px; }
+    .cf-right { flex-direction: column; gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <img class="hero-bg" src="assets/hero-bess.jpg" alt="AKS Hithium battery energy storage product range — containers, cabinets, and modules">
+  <div class="hero-veil"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo" aria-label="AKS Hithium home">
+        <img src="assets/aks-hithium-logo.svg" alt="AKS Hithium">
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="ci-solutions.html">C&amp;I Solutions</a>
+        <a href="utility-grid-scale.html">Utility &amp; Grid-Scale Solutions</a>
+        <a href="#technology">Technology</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#" class="btn-contact">Contact us</a>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <div class="hero-body">
+    <!-- Left rail -->
+    <div class="rail">
+      <p class="rail-label">Secure Power<br>Solutions</p>
+    </div>
+
+    <!-- Main column -->
+    <div class="main">
+      <div class="main-top">
+        <h1 class="headline">Nation-Building<br>Energy Storage.<br>Secure Power.</h1>
+        <div class="cta-row">
+          <a href="#" class="cta cta-primary">
+            <span class="cta-text">Request a Consultation</span>
+            <span class="cta-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 15L15 5M15 5H7M15 5V13" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <div class="main-bottom">
+        <p class="lede">AKS Hithium Energy delivers Tier-1 battery storage in Bangladesh, combining global technology and local expertise to ensure reliable power for industry, manufacturing, and grids.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="about">
+  <div class="about-inner">
+    <div class="about-header">
+      <div class="about-eyebrow"><span class="sq" aria-hidden="true"></span>About us</div>
+      <h2 class="about-title">Building a sovereign, reliable energy storage industry for Bangladesh — one that powers national growth and earns global trust.</h2>
+    </div>
+    <div class="about-content">
+      <div class="about-img">
+        <img src="assets/about-port.jpg" alt="Containers and parked trucks at a Bangladesh port terminal">
+      </div>
+      <div class="about-stats">
+        <div class="about-stat-list">
+          <div class="about-stat">
+            <div class="num">150 GWh+</div>
+            <div class="desc">Hithium technology deployed worldwide</div>
+          </div>
+          <hr class="about-rule">
+          <div class="about-stat">
+            <div class="num">11,000+ cycles</div>
+            <div class="desc">Charge cycles per LFP system</div>
+          </div>
+          <hr class="about-rule">
+          <div class="about-stat">
+            <div class="num">2 GWh capacity</div>
+            <div class="desc">Annual assembly capacity in Bangladesh</div>
+          </div>
+          <hr class="about-rule">
+          <div class="about-stat">
+            <div class="num">24/7 support</div>
+            <div class="desc">Dhaka-based monitoring and support</div>
+          </div>
+          <hr class="about-rule">
+        </div>
+        <a href="#" class="about-cta">Discuss Your Energy Goals</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Solutions preview -->
+<section class="solutions" id="solutions">
+  <div class="solutions-inner">
+    <div class="sol-header">
+      <div class="sec-eyebrow"><span class="sq" aria-hidden="true"></span>Solutions</div>
+      <div class="sol-head-main">
+        <h2 class="sol-title">One Partner. Two Solutions. Total Coverage.</h2>
+        <p class="sol-sub">From a single factory to the national grid, we engineer storage to fit the load.</p>
+      </div>
+    </div>
+    <div class="sol-cards">
+      <div class="sol-card ci">
+        <div class="sol-card-body">
+          <h3 class="sol-card-title">Commercial &amp; Industrial</h3>
+          <p class="sol-card-desc">Containerised and cabinet BESS from 100 kWh to multiple MWh — built for factories, cold storage, and data centres that can't afford downtime.</p>
+          <a href="#" class="sol-card-link">Explore C&amp;I Solutions
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12L12 4M12 4H5.5M12 4V10.5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="sol-card-img"><img src="assets/sol-ci.png" alt="Containerised commercial and industrial battery storage"></div>
+      </div>
+      <div class="sol-card grid">
+        <div class="sol-card-body">
+          <h3 class="sol-card-title">Utility &amp; Grid-Scale</h3>
+          <p class="sol-card-desc">Grid-flexible storage for developers, EPCs, and utilities — enabling frequency support, renewable firming, and tender-ready projects.</p>
+          <a href="#" class="sol-card-link">Explore Grid Solutions
+            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12L12 4M12 4H5.5M12 4V10.5" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="sol-card-img"><img src="assets/sol-grid.jpg" alt="Utility and grid-scale battery storage installation"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Hithium -->
+<section class="why">
+  <div class="why-inner">
+    <div class="why-eyebrow"><span class="sq" aria-hidden="true"></span>Why AKS Hithium</div>
+    <div class="why-cards">
+      <div class="why-card c1">
+        <h3 class="why-card-title">Tier-1 Technology</h3>
+        <p class="why-card-desc">Every system runs on Hithium's LFP cells — a BloombergNEF Tier-1 manufacturer trusted by the world's largest energy projects across the USA and EU.</p>
+        <img class="why-icon" src="assets/why-icon-1.svg" alt="" aria-hidden="true">
+      </div>
+      <div class="why-card c2">
+        <h3 class="why-card-title">One Partner, Full Lifecycle</h3>
+        <p class="why-card-desc">Engineering, supply, commissioning, and long-term after-sales under one roof. No finger-pointing between vendors — one accountable team from assessment to warranty.</p>
+        <img class="why-icon" src="assets/why-icon-2.svg" alt="" aria-hidden="true">
+      </div>
+      <div class="why-card c3">
+        <h3 class="why-card-title">Built in Bangladesh</h3>
+        <p class="why-card-desc">From 2027, local assembly, spare parts, and engineering build sovereign capability — faster logistics, local jobs, and real technology transfer.</p>
+        <img class="why-icon" src="assets/why-icon-3b.svg" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How we Work -->
+<section class="how">
+  <div class="how-inner">
+    <div class="how-left">
+      <div class="how-eyebrow"><span class="sq" aria-hidden="true"></span>How We Work</div>
+      <h2 class="how-title">A Clear Path from Challenge to Capacity</h2>
+      <p class="how-sub">From first assessment to long-term support, one accountable team takes your project from challenge to delivered capacity.</p>
+    </div>
+    <div class="how-right">
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-badge">01</div>
+          <div class="how-step-content">
+            <div class="how-step-img"><img src="assets/how-1.jpg" alt="Engineer assessing site requirements on a tablet"></div>
+            <h3 class="how-step-title">Engineer &amp; Assess</h3>
+            <p class="how-step-desc">We study your load profile, duty cycle, and site conditions to size the exact system you need.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-badge">02</div>
+          <div class="how-step-content">
+            <div class="how-step-img"><img src="assets/how-2.png" alt="Battery containers being delivered"></div>
+            <h3 class="how-step-title">Supply &amp; Install</h3>
+            <p class="how-step-desc">Tier-1 cells delivered and installed, with full integration into your power infrastructure or the grid.</p>
+          </div>
+        </div>
+        <div class="how-step">
+          <div class="how-badge">03</div>
+          <div class="how-step-content">
+            <div class="how-step-img"><img src="assets/how-3.jpg" alt="On-site commissioning of storage systems"></div>
+            <h3 class="how-step-title">Commission</h3>
+            <p class="how-step-desc">Factory-tested systems brought online with rigorous on-site validation before handover.</p>
+          </div>
+        </div>
+        <div class="how-step last">
+          <div class="how-badge">04</div>
+          <div class="how-step-content">
+            <div class="how-step-img"><img src="assets/how-4.png" alt="Long-term monitoring and support"></div>
+            <h3 class="how-step-title">Long-Term Support</h3>
+            <p class="how-step-desc">24/7 monitoring, rapid field response, and warranty management from our Dhaka engineering team.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Partners -->
+<section class="partners">
+  <div class="partners-inner">
+    <div class="partners-header">
+      <div class="partners-eyebrow"><span class="sq" aria-hidden="true"></span>Investors and Partners</div>
+      <h2 class="partners-title">A Joint Venture<br>Built on Strength</h2>
+      <p class="partners-sub">Local roots meet global technology leadership.</p>
+    </div>
+    <div class="partners-cards">
+      <div class="partner-card2">
+        <div class="partner-logo"><img src="assets/partner-aks.png" alt="AKS Khan Holdings"></div>
+        <p>A respected Bangladeshi conglomerate with deep local roots, diversified expertise, and an unwavering commitment to the country's industrial future.</p>
+      </div>
+      <div class="partner-card2">
+        <div class="partner-logo"><img src="assets/partner-hithium.png" alt="Hithium"></div>
+        <p>A top-five global BESS manufacturer with proprietary R&amp;D, cell-to-system production, and deployments across five continents.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Standards -->
+<section class="standards" id="technology">
+  <div class="standards-bg"><img src="assets/standards-bg-new.png" alt=""></div>
+  <div class="standards-veil" aria-hidden="true"></div>
+  <div class="standards-inner">
+    <div class="standards-eyebrow"><span class="sq" aria-hidden="true"></span>Certifications &amp; Safety</div>
+    <div class="standards-header">
+      <div class="standards-head-texts">
+        <h2 class="standards-title">Engineered to<br>International Standards</h2>
+        <p class="standards-sub">Every system is certified, safety-tested, and factory-validated before it ships.</p>
+      </div>
+      <div class="standards-certs">
+        <div class="cert-row">
+          <div class="cert"><img src="assets/cert-new-1.svg" alt="IEC 62619"></div>
+          <div class="cert"><img src="assets/cert-new-2.svg" alt="Fire safety"></div>
+          <div class="cert"><img src="assets/cert-new-3.svg" alt="BMS"></div>
+          <div class="cert"><img src="assets/cert-new-4.svg" alt="UL 1973"></div>
+          <div class="cert"><img src="assets/cert-new-5.svg" alt="UN Transport"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-inner">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" type="button">What size systems do you offer?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>From 100 kWh commercial cabinets to multi-MWh containerised and grid-scale installations — each sized to your specific load and duty cycle.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Who manufactures your batteries?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Every system uses LFP cells from Hithium, a BloombergNEF Tier-1 manufacturer with over 150 GWh deployed worldwide.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Why LFP instead of other chemistries?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>LFP is inherently safe with no thermal runaway propagation, offers 11,000+ cycles, runs cobalt-free, and delivers high round-trip efficiency.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Do you provide installation and ongoing support?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Yes — we handle the full lifecycle: engineering, supply, commissioning, and 24/7 after-sales support from our Dhaka-based team.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">What does "Built in Bangladesh" mean for me?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>From 2027, local assembly means faster delivery, locally stocked spare parts, and a sovereign support capability rather than reliance on overseas logistics.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Can you support tender and EPC requirements?<span class="faq-icon" aria-hidden="true"></span></button>
+        <div class="faq-a"><p>Yes — we offer competitive tender participation with full EPC and financing support, backed by performance guarantees from Hithium.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA + Footer -->
+<footer class="cta-footer" id="contact">
+  <div class="cf-bg" aria-hidden="true"><img src="assets/cta-footer-bg.png" alt=""></div>
+  <div class="cta-footer-inner">
+    <div class="cf-cta-block">
+      <div class="cf-cta-head">
+        <h2 class="cf-title">Let's Power Your Next Chapter of Growth.</h2>
+        <p class="cf-sub">Whether you're securing a factory or stabilising the grid, our team is ready to design the right storage solution.</p>
+      </div>
+      <a href="mailto:energy@aks-hithium.com" class="cf-cta">
+        <span class="cf-cta-text">Discuss Your Energy Goals</span>
+        <span class="cf-cta-icon" aria-hidden="true">
+          <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 15L15 5M15 5H7M15 5V13" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+      <p class="cf-golden">Join us in powering a golden future.</p>
+    </div>
+
+    <div>
+      <div class="cf-divider"></div>
+      <div class="cf-cols" style="margin-top:56px">
+        <div class="cf-sitemap">
+          <div class="cf-col-label">Sitemap</div>
+          <div class="cf-sitemap-cols">
+            <div class="cf-navcol">
+              <a href="index.html">Home</a>
+              <a href="#about">About us</a>
+              <a href="ci-solutions.html">C&amp;I Solutions</a>
+              <a href="utility-grid-scale.html">Utility &amp; Grid-Scale</a>
+              <a href="#technology">Technology</a>
+            </div>
+            <div class="cf-navcol">
+              <a href="#">Term &amp; Service</a>
+              <a href="#">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+        <div class="cf-right">
+          <div class="cf-contact">
+            <div>
+              <div class="cf-col-label">Email &amp; Support</div>
+              <div class="cf-info-val"><a href="mailto:energy@aks-hithium.com" style="color:#fff;text-decoration:none">energy@aks-hithium.com</a></div>
+            </div>
+            <div>
+              <div class="cf-col-label">Phone</div>
+              <div class="cf-info-val">+4 53589 432285</div>
+            </div>
+            <div>
+              <div class="cf-col-label">Address</div>
+              <div class="cf-info-val">Dhaka, Bangladesh</div>
+            </div>
+          </div>
+          <div class="cf-social">
+            <div class="cf-col-label">Social</div>
+            <div class="cf-navcol">
+              <a href="#">X/Twitter</a>
+              <a href="#">Youtube</a>
+              <a href="#">Linkedin</a>
+              <a href="#">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cf-bottom">
+      <p>All right reserve @2025</p>
+      <p>Made by SELISE TXL</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Hero image parallax (skipped when reduced motion is preferred)
+  (function () {
+    var bg = document.querySelector('.hero-bg');
+    var hero = document.querySelector('.hero');
+    if (!bg || !hero) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    function apply() {
+      var y = window.scrollY;
+      if (y <= hero.offsetHeight) bg.style.transform = 'translate3d(0,' + (y * 0.3) + 'px,0)';
+    }
+    window.addEventListener('scroll', apply, { passive: true });
+    apply();
+  })();
+
+  // About section image parallax
+  (function () {
+    var abg = document.querySelector('.about-img img');
+    var sec = document.querySelector('.about');
+    if (!abg || !sec) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    function apply() {
+      var rect = sec.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+      var progress = -rect.top / sec.offsetHeight;
+      abg.style.transform = 'translate3d(0,' + (progress * sec.offsetHeight * 0.2) + 'px,0)';
+    }
+    window.addEventListener('scroll', apply, { passive: true });
+    apply();
+  })();
+
+  // Standards section image parallax
+  (function () {
+    var sbg = document.querySelector('.standards-bg img');
+    var sec = document.querySelector('.standards');
+    if (!sbg || !sec) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    function apply() {
+      var rect = sec.getBoundingClientRect();
+      if (rect.bottom < 0 || rect.top > window.innerHeight) return;
+      var progress = -rect.top / sec.offsetHeight;
+      sbg.style.transform = 'translate3d(0,' + (progress * sec.offsetHeight * 0.3) + 'px,0)';
+    }
+    window.addEventListener('scroll', apply, { passive: true });
+    apply();
+  })();
+
+  // How we Work — scroll-driven blue progress line
+  (function () {
+    var steps = document.querySelector('.how-steps');
+    if (!steps) return;
+    var badges = steps.querySelectorAll('.how-badge');
+    if (badges.length < 2) return;
+    var first = badges[0], last = badges[badges.length - 1];
+    function update() {
+      var fr = first.getBoundingClientRect(), lr = last.getBoundingClientRect();
+      var startY = fr.top + fr.height / 2;
+      var endY = lr.top + lr.height / 2;
+      var span = endY - startY;
+      var ref = window.innerHeight * 0.55;
+      var p = span > 0 ? (ref - startY) / span : 0;
+      p = Math.max(0, Math.min(1, p));
+      steps.style.setProperty('--how-progress', (p * span) + 'px');
+    }
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+  })();
+
+  document.querySelectorAll('.faq-q').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function (i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+</script>
+
+</body>
+</html>
