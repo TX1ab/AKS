@@ -8,3 +8,7 @@
 
 # Node
 node_modules/
+
+aks-next.zip
+aks-next/node_modules/
+aks-next/.next/
