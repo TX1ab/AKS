@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd aks-next && npm run build",
+  "outputDirectory": "aks-next/.next",
+  "installCommand": "cd aks-next && npm install"
+}
