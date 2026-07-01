@@ -49,7 +49,7 @@ export default function Technology() {
         <div className="flex items-start gap-16 max-[1000px]:flex-col">
           <div className="flex flex-1 flex-col gap-10 max-[1000px]:order-2">
             <div className="flex flex-col gap-6">
-              <h1 className="max-w-[675px] text-[clamp(40px,4.6vw,64px)] font-medium leading-[1.12] tracking-[-1px] text-ink">Tier-1 Cells. International Standards. Local Support and Assembly.</h1>
+              <h1 data-reveal="heading" className="max-w-[675px] text-[clamp(40px,4.6vw,64px)] font-medium leading-[1.12] tracking-[-1px] text-ink">Tier-1 Cells. International Standards. Local Support and Assembly.</h1>
               <p className="text-lg leading-6 text-grey">Every AKS Hithium system is built on globally certified LFP technology — proven across 150 GWh of deployments worldwide, and backed by a Dhaka-based engineering team that knows your site.</p>
             </div>
             <div className="flex flex-wrap gap-4">
@@ -64,10 +64,10 @@ export default function Technology() {
           </div>
         </div>
         {/* Stats strip */}
-        <div className="mt-16 flex flex-wrap items-start justify-between gap-8 py-12">
+        <div data-stagger className="mt-16 flex flex-wrap items-start justify-between gap-8 py-12">
           {HERO_STATS.map(([n, d]) => (
             <div key={n} className="flex w-[300px] max-w-full flex-col items-center gap-2 text-center max-[620px]:w-[45%]">
-              <p className="text-[32px] font-medium leading-10 tracking-[-1px] text-ink">{n}</p>
+              <p data-count className="text-[32px] font-medium leading-10 tracking-[-1px] text-ink">{n}</p>
               <p className="text-base leading-6 text-grey">{d}</p>
             </div>
           ))}
@@ -79,7 +79,7 @@ export default function Technology() {
         <div className="mx-auto flex max-w-site flex-col gap-10">
           <div className="flex items-center gap-3 font-mono text-sm uppercase leading-4 text-white"><span className="hex bg-white" aria-hidden="true" />Local Care</div>
           <div className="flex items-center gap-20 max-[1000px]:flex-col max-[1000px]:items-start max-[1000px]:gap-8">
-            <h2 className="flex-1 text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-white">Global Hardware. Local Care.</h2>
+            <h2 data-reveal="heading" className="flex-1 text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-white">Global Hardware. Local Care.</h2>
             <p className="w-[600px] max-w-full text-lg leading-6 text-[#9ca3af]">Our Dhaka-based engineering team monitors your system 24/7 — providing rapid field response, warranty management, and capacity assurance — with direct access to the global expertise of our venture partner, Hithium. You get world-class technology supported by people on the ground here in Bangladesh.</p>
           </div>
         </div>
@@ -91,11 +91,11 @@ export default function Technology() {
           <div className="flex w-[401px] max-w-full shrink-0 flex-col gap-10">
             <div className="flex items-center gap-3 font-mono text-sm uppercase leading-4 text-grey"><span className="hex bg-primary" aria-hidden="true" />Cell Technology</div>
             <div className="flex flex-col gap-4">
-              <h2 className="text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-black">Powered by HITHIUM</h2>
+              <h2 data-reveal="heading" className="text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-black">Powered by HITHIUM</h2>
               <p className="text-lg leading-6 text-grey">Every system is built around Hithium&apos;s lithium iron phosphate (LFP) cells — proven in over 150 GWh of global deployments. Hithium is a BloombergNEF Tier-1 manufacturer.</p>
             </div>
           </div>
-          <div className="grid min-w-0 flex-1 grid-cols-4 gap-5 max-[1000px]:grid-cols-2 max-[560px]:grid-cols-1">
+          <div data-stagger className="grid min-w-0 flex-1 grid-cols-4 gap-5 max-[1000px]:grid-cols-2 max-[560px]:grid-cols-1">
             {CELLS.map(([icon, t, d]) => (
               <div key={t} className="flex h-[220px] flex-col items-start justify-between rounded-2xl bg-sand p-5">
                 <img src={icon} alt="" className="h-10 w-auto self-start" />
@@ -115,11 +115,11 @@ export default function Technology() {
           <div className="flex w-[630px] max-w-full shrink-0 flex-col gap-10">
             <div className="flex items-center gap-3 font-mono text-sm uppercase leading-4 text-black"><span className="hex bg-primary" aria-hidden="true" />Manufacturing</div>
             <div className="flex flex-col gap-4">
-              <h2 className="text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-black">Assembled in Bangladesh,<br />from 2027</h2>
+              <h2 data-reveal="heading" className="text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-black">Assembled in Bangladesh,<br />from 2027</h2>
               <p className="text-lg leading-6 text-grey">We operate under an exclusive venture with Hithium for corporate, industrial, and grid applications — establishing Bangladesh&apos;s first dedicated BESS assembly line.</p>
             </div>
           </div>
-          <div className="flex min-w-0 flex-1 flex-col gap-5">
+          <div data-stagger className="flex min-w-0 flex-1 flex-col gap-5">
             {ASSEMBLY.map(([icon, t, d]) => (
               <div key={t} className="flex items-start gap-5 rounded-2xl border border-sand-2 px-8 py-5">
                 <img src={icon} alt="" className="h-8 w-8 shrink-0" />

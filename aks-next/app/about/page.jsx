@@ -52,7 +52,7 @@ export default function About() {
         <div className="flex flex-col items-center gap-10">
           <div className="flex flex-col items-center gap-6 text-center">
             <div className="flex items-center gap-3 font-mono text-sm uppercase leading-4 text-grey"><span className="hex bg-primary" aria-hidden="true" />About AKS x Hithium</div>
-            <h1 className="max-w-[882px] text-center text-[clamp(40px,4.6vw,64px)] font-medium leading-[1.12] tracking-[-1px] text-ink">Nation-Building Energy Storage. Secure Power.</h1>
+            <h1 data-reveal="heading" className="max-w-[882px] text-center text-[clamp(40px,4.6vw,64px)] font-medium leading-[1.12] tracking-[-1px] text-ink">Nation-Building Energy Storage. Secure Power.</h1>
           </div>
           <div className="flex flex-col items-center gap-5">
             <p className="max-w-[868px] text-center text-lg font-medium leading-6 text-[#9ca3af]">AKS Hithium Energy brings global Tier-1 battery storage to Bangladesh — pairing world-class technology with local commitment. We make power reliable for industry, manufacturing, and the national grid, so growth never has to wait for the next outage.</p>
@@ -70,10 +70,10 @@ export default function About() {
       </section>
 
       {/* Stats strip */}
-      <div className="mx-auto flex max-w-site flex-wrap items-start justify-between gap-8 px-10 py-12 max-[620px]:px-6">
+      <div data-stagger className="mx-auto flex max-w-site flex-wrap items-start justify-between gap-8 px-10 py-12 max-[620px]:px-6">
         {STATS.map(([n, d]) => (
           <div key={d} className="flex w-[300px] max-w-full flex-col items-center gap-2 text-center max-[620px]:w-[45%]">
-            <p className="text-[32px] font-medium leading-10 tracking-[-1px] text-ink">{n}</p>
+            <p data-count className="text-[32px] font-medium leading-10 tracking-[-1px] text-ink">{n}</p>
             <p className="text-base leading-6 text-grey">{d}</p>
           </div>
         ))}
@@ -81,7 +81,7 @@ export default function About() {
 
       {/* Mission quote */}
       <section className="flex justify-center bg-sand px-20 py-40 max-[620px]:px-6 max-[620px]:py-24">
-        <p className="max-w-[942px] text-center text-[clamp(32px,4.2vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-ink">&ldquo;Building a sovereign, reliable energy storage industry for Bangladesh — one that powers national growth and earns global trust.&rdquo;</p>
+        <p data-reveal="heading" className="max-w-[942px] text-center text-[clamp(32px,4.2vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-ink">&ldquo;Building a sovereign, reliable energy storage industry for Bangladesh — one that powers national growth and earns global trust.&rdquo;</p>
       </section>
 
       {/* Manufacturing */}
@@ -90,10 +90,10 @@ export default function About() {
           <div className="flex flex-1 flex-col gap-12">
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-3 font-mono text-sm uppercase leading-4 text-grey"><span className="hex bg-primary" aria-hidden="true" />Manufacturing</div>
-              <h2 className="text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-ink">Assembled in Bangladesh, from 2027</h2>
+              <h2 data-reveal="heading" className="text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-ink">Assembled in Bangladesh, from 2027</h2>
               <p className="text-lg font-medium leading-6 text-grey">We operate under an exclusive venture with Hithium to establish Bangladesh&apos;s first dedicated BESS assembly line — creating sovereign manufacturing capability and local jobs.</p>
             </div>
-            <div className="flex flex-col gap-8">
+            <div data-stagger className="flex flex-col gap-8">
               {MFG_POINTS.map(([t, d]) => (
                 <div key={t} className="flex items-start gap-4">
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-xl bg-primary"><img src="/assets/image/check-white.svg" alt="" className="h-3.5 w-3.5" /></span>
@@ -115,7 +115,7 @@ export default function About() {
           <div className="flex flex-col items-center gap-6 text-center">
             <div className="flex items-center gap-3 font-mono text-sm uppercase leading-4 text-grey"><span className="hex bg-primary" aria-hidden="true" />Joint Venture</div>
             <div className="flex flex-col items-center gap-4">
-              <h2 className="text-[clamp(36px,4vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-ink">A Joint Venture Built on Strength</h2>
+              <h2 data-reveal="heading" className="text-[clamp(36px,4vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-ink">A Joint Venture Built on Strength</h2>
               <p className="text-lg font-medium leading-6 text-grey">Local roots meet global technology leadership.</p>
             </div>
           </div>
@@ -152,8 +152,8 @@ export default function About() {
       {/* Team */}
       <section className="bg-white px-10 py-16 max-[620px]:px-6">
         <div className="mx-auto flex max-w-site flex-col items-center gap-10">
-          <h2 className="w-full text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-ink">Our Team</h2>
-          <div className="grid w-full grid-cols-4 gap-4 max-[1000px]:grid-cols-2 max-[560px]:grid-cols-1">
+          <h2 data-reveal="heading" className="w-full text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-ink">Our Team</h2>
+          <div data-stagger className="grid w-full grid-cols-4 gap-4 max-[1000px]:grid-cols-2 max-[560px]:grid-cols-1">
             {TEAM.map(([img, name, role], i) => (
               <div key={i} className="flex flex-col">
                 <div className="h-[335px] overflow-hidden rounded-t-2xl"><img src={img} alt={name} className="h-full w-full object-cover" /></div>
@@ -173,11 +173,11 @@ export default function About() {
           <div className="flex flex-col gap-6">
             <div className="flex items-center gap-3 font-mono text-sm uppercase leading-4 text-grey"><span className="hex bg-primary" aria-hidden="true" />Our Process</div>
             <div className="flex flex-col gap-4">
-              <h2 className="text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-ink">A Clear Path from Challenge to Capacity</h2>
+              <h2 data-reveal="heading" className="text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-ink">A Clear Path from Challenge to Capacity</h2>
               <p className="text-lg font-medium leading-6 text-grey">One accountable partner across the entire lifecycle.</p>
             </div>
           </div>
-          <div className="flex gap-6 max-[1000px]:flex-wrap">
+          <div data-stagger className="flex gap-6 max-[1000px]:flex-wrap">
             {PROCESS.map(([icon, num, t, d]) => (
               <div key={num} className="relative flex flex-1 flex-col gap-6 overflow-hidden rounded-2xl bg-sand p-4 max-[1000px]:flex-[1_1_45%] max-[560px]:flex-[1_1_100%]">
                 <span aria-hidden="true" className="pointer-events-none absolute -top-4 right-2 font-medium leading-none text-black/5 text-[160px]">{num}</span>

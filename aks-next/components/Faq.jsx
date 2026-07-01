@@ -8,10 +8,10 @@ export default function Faq({ title, items, variant = 'home' }) {
   return (
     <section className="bg-white py-32 text-ink max-[700px]:py-20">
       <div className="mx-auto flex max-w-faq flex-col items-center gap-12 px-10 max-[620px]:px-6">
-        <h2 className={`text-center font-medium tracking-[-1px] text-ink ${util ? 'text-[clamp(36px,4vw,56px)] leading-[1.14]' : 'text-[56px] leading-[64px]'}`}>
+        <h2 data-reveal="heading" className={`text-center font-medium tracking-[-1px] text-ink ${util ? 'text-[clamp(36px,4vw,56px)] leading-[1.14]' : 'text-[56px] leading-[64px]'}`}>
           {title}
         </h2>
-        <div className="flex w-full max-w-[1136px] flex-col gap-5">
+        <div data-stagger className="flex w-full max-w-[1136px] flex-col gap-5">
           {items.map((it, i) => {
             const isOpen = open === i;
             return (

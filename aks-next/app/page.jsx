@@ -57,7 +57,7 @@ export default function Home() {
           <div className="relative flex min-w-0 flex-1 flex-col justify-between pl-10 max-[860px]:pl-0">
             <span className="absolute -bottom-14 -top-7 left-0 w-px bg-white/15 max-[860px]:hidden" aria-hidden="true" />
             <div className="flex flex-col gap-10">
-              <h1 className="text-[70px] font-medium leading-[70px] tracking-[-2.8px] text-white max-[1100px]:text-[56px] max-[1100px]:leading-[56px] max-[860px]:text-[clamp(40px,11vw,56px)] max-[860px]:leading-none">
+              <h1 data-reveal="heading" className="text-[70px] font-medium leading-[70px] tracking-[-2.8px] text-white max-[1100px]:text-[56px] max-[1100px]:leading-[56px] max-[860px]:text-[clamp(40px,11vw,56px)] max-[860px]:leading-none">
                 Nation-Building<br />Energy Storage.<br />Secure Power.
               </h1>
               <div className="flex flex-wrap gap-6">
@@ -68,7 +68,7 @@ export default function Home() {
               </div>
             </div>
             <div className="pt-8">
-              <p className="max-w-[766px] text-lg font-medium leading-[27px] tracking-[-0.36px] text-white max-[480px]:text-base max-[480px]:leading-6">
+              <p data-reveal="fade-up" className="max-w-[766px] text-lg font-medium leading-[27px] tracking-[-0.36px] text-white max-[480px]:text-base max-[480px]:leading-6">
                 AKS Hithium Energy delivers Tier-1 battery storage in Bangladesh, combining global technology and local expertise to ensure reliable power for industry, manufacturing, and grids.
               </p>
             </div>
@@ -83,7 +83,7 @@ export default function Home() {
             <div className="flex w-[347px] shrink-0 items-center gap-3 pt-3 font-mono text-sm uppercase leading-[21px] text-ink max-[980px]:w-auto max-[980px]:pt-0">
               <span className="hex bg-primary" aria-hidden="true" />About us
             </div>
-            <h2 className="max-w-[1011px] text-[clamp(32px,4.4vw,56px)] font-medium leading-[1.07] tracking-[-0.4px] text-black">
+            <h2 data-reveal="heading" className="max-w-[1011px] text-[clamp(32px,4.4vw,56px)] font-medium leading-[1.07] tracking-[-0.4px] text-black">
               Building a sovereign, reliable energy storage industry for Bangladesh — one that powers national growth and earns global trust.
             </h2>
           </div>
@@ -92,11 +92,11 @@ export default function Home() {
               <img data-parallax="6" src="/assets/image/about-port.jpg" alt="Containers and parked trucks at a Bangladesh port terminal" className="parallax-img" />
             </div>
             <div className="flex max-w-[641px] flex-1 flex-col gap-12 max-[980px]:max-w-full">
-              <div className="flex flex-col gap-4">
+              <div data-stagger className="flex flex-col gap-4">
                 {STATS.map(([num, desc], i) => (
                   <div key={num}>
                     <div className="flex items-center gap-4 py-2 max-[560px]:flex-col max-[560px]:items-start max-[560px]:gap-1">
-                      <div className="max-w-[350px] flex-[0_0_350px] text-[44px] font-medium leading-[1.1] tracking-[-2.4px] text-ink max-[560px]:flex-none max-[560px]:text-4xl max-[560px]:tracking-[-1.6px]">{num}</div>
+                      <div data-count className="max-w-[350px] flex-[0_0_350px] text-[44px] font-medium leading-[1.1] tracking-[-2.4px] text-ink max-[560px]:flex-none max-[560px]:text-4xl max-[560px]:tracking-[-1.6px]">{num}</div>
                       <div className="min-w-0 flex-1 text-base leading-6 tracking-[-0.32px] text-grey">{desc}</div>
                     </div>
                     <hr className="h-px w-full border-0 bg-rule" />
@@ -117,11 +117,11 @@ export default function Home() {
               <span className="hex bg-primary" aria-hidden="true" />Solutions
             </div>
             <div className="flex min-w-0 flex-1 flex-col gap-4">
-              <h2 className="max-w-[996px] text-[clamp(38px,4.6vw,64px)] font-medium leading-[1.1] tracking-[-3.2px] text-ink">One Partner. Two Solutions. Total Coverage.</h2>
+              <h2 data-reveal="heading" className="max-w-[996px] text-[clamp(38px,4.6vw,64px)] font-medium leading-[1.1] tracking-[-3.2px] text-ink">One Partner. Two Solutions. Total Coverage.</h2>
               <p className="text-base leading-6 tracking-[-0.32px] text-ink">From a single factory to the national grid, we engineer storage to fit the load.</p>
             </div>
           </div>
-          <div className="flex items-stretch gap-5 max-[980px]:flex-col">
+          <div data-stagger className="flex items-stretch gap-5 max-[980px]:flex-col">
             {[
               { t: 'Commercial & Industrial', d: "Containerised and cabinet BESS from 100 kWh to multiple MWh — built for factories, cold storage, and data centres that can't afford downtime.", link: 'Explore C&I Solutions', href: '/ci-solutions', img: '/assets/image/sol-ci.png', w: 'w-[685px] shrink-0 max-[980px]:w-full' },
               { t: 'Utility & Grid-Scale', d: 'Grid-flexible storage for developers, EPCs, and utilities — enabling frequency support, renewable firming, and tender-ready projects.', link: 'Explore Grid Solutions', href: '/utility-grid-scale', img: '/assets/image/sol-grid.jpg', w: 'flex-1 min-w-0' },
@@ -143,7 +143,7 @@ export default function Home() {
       <section className="bg-ink py-32 text-white max-[980px]:py-20">
         <div className="mx-auto flex max-w-site flex-col gap-14 px-10 max-[620px]:px-6">
           <div className="flex items-center gap-3 font-mono text-sm uppercase leading-[21px] text-white"><span className="hex bg-white" aria-hidden="true" />Why AKS Hithium</div>
-          <div className="flex items-stretch gap-5 max-[980px]:flex-col">
+          <div data-stagger className="flex items-stretch gap-5 max-[980px]:flex-col">
             {WHY.map((c) => (
               <div key={c.t} className={`relative h-[400px] flex-1 overflow-hidden rounded-md p-8 max-[980px]:h-auto max-[980px]:min-h-[320px] ${c.bg}`}>
                 <h3 className="relative z-[1] whitespace-nowrap text-[32px] font-medium leading-[1.3] tracking-[-1.28px] text-ink">{c.t}</h3>
@@ -157,21 +157,21 @@ export default function Home() {
 
       {/* How we Work */}
       <section className="bg-ink py-[120px] text-white max-[980px]:py-20">
-        <div className="mx-auto flex max-w-site items-start gap-16 px-10 max-[980px]:flex-col max-[980px]:gap-10 max-[620px]:px-6">
+        <div className="mx-auto flex max-w-site items-start justify-between gap-16 px-10 max-[980px]:flex-col max-[980px]:gap-10 max-[620px]:px-6">
           <div className="sticky top-[88px] w-[500px] shrink-0 self-start max-[980px]:static max-[980px]:w-full">
             <div className="flex items-center gap-3 font-mono text-sm uppercase leading-[21px] text-white"><span className="hex bg-white" aria-hidden="true" />How We Work</div>
-            <h2 className="mt-8 text-[clamp(40px,4.4vw,64px)] font-medium leading-[1.1] tracking-[-3.2px]">A Clear Path from Challenge to Capacity</h2>
+            <h2 data-reveal="heading" className="mt-8 text-[clamp(40px,4.4vw,64px)] font-medium leading-[1.1] tracking-[-3.2px]">A Clear Path from Challenge to Capacity</h2>
             <p className="mt-5 max-w-[500px] text-base leading-6 tracking-[-0.32px] text-muted-foot">From first assessment to long-term support, one accountable team takes your project from challenge to delivered capacity.</p>
           </div>
-          <div className="min-w-0 flex-1">
+          <div className="w-[700px] shrink-0 max-[980px]:w-full">
             <div data-progress-track className="relative flex flex-col gap-14">
-              <span className="absolute bottom-[430px] left-[29px] top-[30px] border-l-2 border-dashed border-grey max-[980px]:left-[23px]" aria-hidden="true" />
-              <span data-progress-fill className="absolute bottom-[430px] left-[29px] top-[30px] w-0.5 origin-top bg-primary max-[980px]:left-[23px]" aria-hidden="true" />
+              <span className="absolute bottom-[510px] left-[29px] top-[30px] border-l-2 border-dashed border-grey max-[980px]:left-[23px]" aria-hidden="true" />
+              <span data-progress-fill className="absolute bottom-[510px] left-[29px] top-[30px] w-0.5 origin-top bg-primary max-[980px]:left-[23px]" aria-hidden="true" />
               {STEPS.map(([n, img, t, d], i) => (
                 <div key={n} className="relative flex items-start gap-10 max-[980px]:gap-5">
                   <div className={`relative z-[1] flex h-[60px] w-[60px] shrink-0 items-center justify-center rounded-full border bg-ink text-lg tracking-[-0.36px] text-white max-[980px]:h-12 max-[980px]:w-12 ${i === STEPS.length - 1 ? 'border-grey' : 'border-primary'}`}>{n}</div>
-                  <div className="min-w-0 max-w-[500px] flex-1">
-                    <div className="h-[280px] w-full overflow-hidden rounded-md max-[560px]:h-[200px]"><img src={img} alt={t} className="h-full w-full object-cover" /></div>
+                  <div className="min-w-0 max-w-[600px] flex-1">
+                    <div className="h-[360px] w-full overflow-hidden rounded-md max-[560px]:h-[240px]"><img src={img} alt={t} className="h-full w-full object-cover" /></div>
                     <h3 className="mt-10 text-[32px] font-medium leading-[1.3] tracking-[-1.28px] max-[560px]:text-[26px] max-[560px]:tracking-[-1px]">{t}</h3>
                     <p className="mt-4 text-base leading-6 tracking-[-0.32px] text-muted-foot">{d}</p>
                   </div>
@@ -187,10 +187,10 @@ export default function Home() {
         <div className="mx-auto flex max-w-site flex-col items-center gap-12 px-10 max-[620px]:px-6">
           <div className="flex flex-col items-center gap-6 text-center">
             <div className="flex items-center gap-3 font-mono text-sm uppercase leading-[21px] text-black"><span className="hex bg-primary" aria-hidden="true" />Investors and Partners</div>
-            <h2 className="text-[clamp(36px,4vw,56px)] font-medium leading-none tracking-[-1.68px] text-black">A Joint Venture<br />Built on Strength</h2>
+            <h2 data-reveal="heading" className="text-[clamp(36px,4vw,56px)] font-medium leading-none tracking-[-1.68px] text-black">A Joint Venture<br />Built on Strength</h2>
             <p className="max-w-[840px] text-base leading-6 tracking-[-0.32px] text-grey">Local roots meet global technology leadership.</p>
           </div>
-          <div className="flex flex-wrap justify-center gap-[49px]">
+          <div data-stagger className="flex flex-wrap justify-center gap-5">
             {[
               { logo: '/assets/image/partner-aks.png', alt: 'AKS Khan Holdings', p: "A respected Bangladeshi conglomerate with deep local roots, diversified expertise, and an unwavering commitment to the country's industrial future." },
               { logo: '/assets/image/partner-hithium.png', alt: 'Hithium', p: 'A top-five global BESS manufacturer with proprietary R&D, cell-to-system production, and deployments across five continents.' },

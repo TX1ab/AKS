@@ -20,7 +20,7 @@ export default function Standards() {
         </div>
         <div className="flex flex-col items-center gap-12 text-center">
           <div className="flex flex-col items-center gap-4">
-            <h2 className="text-center text-[56px] font-medium leading-[64px] tracking-[-1px] text-ink max-[620px]:text-[40px] max-[620px]:leading-[1.1]">
+            <h2 data-reveal="heading" className="text-center text-[56px] font-medium leading-[64px] tracking-[-1px] text-ink max-[620px]:text-[40px] max-[620px]:leading-[1.1]">
               Engineered to
               <br />
               International Standards
@@ -30,7 +30,7 @@ export default function Standards() {
             </p>
           </div>
           <div className="flex items-center justify-center">
-            <div className="flex flex-wrap items-center justify-center gap-5">
+            <div data-stagger className="flex flex-wrap items-center justify-center gap-5">
               {CERTS.map((c) => (
                 <div key={c.alt} className="flex h-40 w-40 shrink-0 items-center justify-center">
                   <img src={c.src} alt={c.alt} className="h-[88px] w-auto" />

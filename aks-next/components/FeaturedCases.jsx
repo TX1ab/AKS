@@ -5,11 +5,11 @@ export default function FeaturedCases({ cases, sub = 'Comprehensive EPC and Fina
       <div className="flex flex-col gap-10">
         <div className="flex items-center gap-3 font-mono text-sm uppercase leading-4 text-grey"><span className="hex bg-primary" aria-hidden="true" />Case Studies</div>
         <div className="flex flex-col gap-4">
-          <h2 className="text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-ink">Featured cases</h2>
+          <h2 data-reveal="heading" className="text-[clamp(40px,4.4vw,56px)] font-medium leading-[1.14] tracking-[-1px] text-ink">Featured cases</h2>
           <p className="text-lg font-medium leading-6 text-grey">{sub}</p>
         </div>
       </div>
-      <div className="flex gap-5 max-[1000px]:flex-col">
+      <div data-stagger className="flex gap-5 max-[1000px]:flex-col">
         {cases.map(([img, t, d]) => (
           <a key={t} href="#contact" className="group flex min-w-0 flex-1 flex-col gap-3">
             <div className="relative h-[328px] overflow-hidden rounded-md">
